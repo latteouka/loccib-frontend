@@ -7,5 +7,14 @@ app = Flask(__name__)
 def hello():
     return f'Hello, Heroku!'
 
+
+
+
+@app.route("/getname", methods=['GET'])
+def getname():
+    name = request.args.get('name')
+    return render_template('get.html',**locals())
+
+
 if __name__ == 'main':
     app.run() #啟動伺服器
