@@ -47,11 +47,11 @@ def show():
     with connection.cursor() as cursor:
         sql = "SELECT * FROM `records` WHERE `user`=%s"
         cursor.execute(sql, ('chun',))
-        result = cursor.fetchone()
+        result = cursor.fetchall()
         print(result)
 
     
-    return render_template('records.html',**locals())
+    #return render_template('records.html',**locals())
 
 
 if __name__ == 'main':
