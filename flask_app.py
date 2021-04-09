@@ -64,7 +64,7 @@ def addnew():
 @app.route("/show", methods=['GET'])
 def show():
 
-    user = request.args.get('chun')
+    user = request.args.get('user')
 
     connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
                              user=os.environ.get('CLEARDB_DATABASE_USER'),
