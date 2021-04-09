@@ -1,11 +1,15 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import make_response
 
 import os
 
 import pymysql
 import pymysql.cursors
+
+import csv
+import io
 
 
 app = Flask(__name__)
@@ -100,11 +104,36 @@ def target():
         sql = "SELECT * FROM `records` WHERE `user`=%s AND `header`=%s ORDER BY `id` DESC"
         cursor.execute(sql, (user,target))
         results = cursor.fetchall()
-        #print(result)
+        
         cursor.close()
 
     
     return render_template('target_records.html',**locals())
+
+
+@app.route('/export', methods=['GET'])
+def export():
+
+    target = request.args.get('target')
+    user = request.args.get('user')
+
+    si = io.StringIO()
+    cw = csv.writer(si)
+    
+    with connection.cursor() as cursor:
+        sql = "SELECT * FROM `records` WHERE `user`=%s AND `header`=%s ORDER BY `id` DESC"
+        cursor.execute(sql, (user,target))
+        results = cursor.fetchall()
+        
+        cursor.close()
+
+    cw.writerow([i[0] for i in c.description])
+    cw.writerows(results)
+
+    response = make_response(si.getvalue())
+    response.headers['Content-Disposition'] = 'attachment; filename=output.csv'
+    response.headers["Content-type"] = "text/csv"
+    return response
 
 
 if __name__ == 'main':
