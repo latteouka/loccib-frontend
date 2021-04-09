@@ -25,7 +25,7 @@
 			            <td data-title="主旨" class="numeric">{{result["header"]}}</td>
 			            <td data-title="時間" class="numeric">{{result["time"]}}</td>
 			            <td data-title="基地台" class="numeric">{{result["cell_lon"]}}</td>
-			            <td data-title="三角定位" class="numeric">http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}</td>
+			            <td data-title="三角定位" class="numeric"><a href="http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}">http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}</a></td>
 			            <td data-title="備註" class="numeric">{{result["msg"]}}</td>
 			        </tr>
 			    {% endfor %}
