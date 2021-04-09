@@ -34,10 +34,10 @@ def addnew():
     header = request.args.get('header')
     user = request.args.get('user')
     msg = request.args.get('msg')
-    cell_lat = str(request.args.get('name'))
-    cell_lon = str(request.args.get('name'))
-    tri_lat = str(request.args.get('name'))
-    tri_lon = str(request.args.get('name'))
+    cell_lat = request.args.get('name')
+    cell_lon = request.args.get('name')
+    tri_lat = request.args.get('name')
+    tri_lon = request.args.get('name')
     time = request.args.get('time')
     stat = request.args.get('stat')
 
@@ -55,9 +55,9 @@ def addnew():
         sql = "INSERT INTO `records` (`header`, `user`, `msg`, `cell_lat`, `cell_lon`, `tri_lat`, `tri_lon`, `url`, `time`, `stat`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
         
         if tri_lat != 0:
-            cursor.execute(sql, (header, user, msg, cell_lat, cell_lon, tri_lat, tri_lon, url_tri, time, stat))
+            cursor.execute(sql, (header, user, msg, cell_lat, cell_lon, tri_lat, tri_lon, "0", time, stat))
         else:
-            cursor.execute(sql, (header, user, msg, cell_lat, cell_lon, tri_lat, tri_lon, url_cell, time, stat))
+            cursor.execute(sql, (header, user, msg, cell_lat, cell_lon, tri_lat, tri_lon, "0", time, stat))
         
         cursor.close()
 
