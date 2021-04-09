@@ -30,19 +30,19 @@ def getname():
 
 @app.route("/addnew", methods=['GET'])
 def addnew():
-	# read parameters
-	header = request.args.get('header')
-	user = request.args.get('user')
-	msg = request.args.get('msg')
-	cell_lat = request.args.get('name')
-	cell_lon = request.args.get('name')
-	tri_lat = request.args.get('name')
-	tri_lon = request.args.get('name')
-	time = request.args.get('time')
-	stat = request.args.get('stat')
+    # read parameters
+    header = request.args.get('header')
+    user = request.args.get('user')
+    msg = request.args.get('msg')
+    cell_lat = request.args.get('name')
+    cell_lon = request.args.get('name')
+    tri_lat = request.args.get('name')
+    tri_lon = request.args.get('name')
+    time = request.args.get('time')
+    stat = request.args.get('stat')
 
-	url_cell = "http://www.google.com.tw/maps/search/"+cell_lat+","+cell_lon
-	url_tri = "http://www.google.com.tw/maps/search/"+tri_lat+","+tri_lon
+    url_cell = "http://www.google.com.tw/maps/search/"+cell_lat+","+cell_lon
+    url_tri = "http://www.google.com.tw/maps/search/"+tri_lat+","+tri_lon
 
     connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
                              user=os.environ.get('CLEARDB_DATABASE_USER'),
