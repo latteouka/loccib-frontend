@@ -53,11 +53,14 @@ def addnew():
     with connection.cursor() as cursor:
         # add text value
         sql = "INSERT INTO `records` (`header`, `user`, `msg`, `cell_lat`, `cell_lon`, `tri_lat`, `tri_lon`, `url`, `time`, `stat`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        
         if tri_lat != 0:
-            cursor.execute(sql, (header, user, msg, cell_lat, cell_lon, tri_lat, tri_lon, url_tri, 1))
+            cursor.execute(sql, (header, user, msg, cell_lat, cell_lon, tri_lat, tri_lon, url_tri, stat))
         else:
-            cursor.execute(sql, (header, user, msg, cell_lat, cell_lon, tri_lat, tri_lon, url_cell, 0))
+            cursor.execute(sql, (header, user, msg, cell_lat, cell_lon, tri_lat, tri_lon, url_cell, stat))
+        
         cursor.close()
+
     connection.commit()
     return f'add new test record'
     
