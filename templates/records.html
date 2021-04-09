@@ -24,7 +24,7 @@
 		    <tbody>
 		    	{% for result in results %}
 			        <tr>
-			            <td data-title="Target" class="numeric">{{result["header"]}}</td>
+			            <td data-title="Target" class="numeric"><a href="https://loccib.herokuapp.com/target?target={{result["target"]}}&user={{result["user"]}}></a>{{result["header"]}}</td>
 			            <td data-title="Time" class="numeric">{{result["time"]}}</td>
 			            <td data-title="Cell">{{result["cell_lat"]}},{{result["cell_lon"]}}<br><a href="http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}" target="_blank">http://www.google.com.tw/maps/search/{{result["cell_lat"]}},{{result["cell_lon"]}}</a></td>
 			            <td data-title="Tri_Loc">{{result["tri_lat"]}},{{result["tri_lon"]}}<br><a href="http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}" target="_blank">http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}</a></td>

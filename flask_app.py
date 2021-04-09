@@ -83,6 +83,29 @@ def show():
     
     return render_template('records.html',**locals())
 
+@app.route("/target", methods=['GET'])
+def target():
+
+    target = request.args.get('target')
+    user = request.args.get('user')
+
+    connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+                             user=os.environ.get('CLEARDB_DATABASE_USER'),
+                             password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
+                             db=os.environ.get('CLEARDB_DATABASE_DB'),
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+
+    with connection.cursor() as cursor:
+        sql = "SELECT * FROM `records` WHERE `user`=%s AND `header`=%s ORDER BY `id` DESC"
+        cursor.execute(sql, (user,target))
+        results = cursor.fetchall()
+        #print(result)
+        cursor.close()
+
+    
+    return render_template('target_records.html',**locals())
+
 
 if __name__ == 'main':
     app.run() #啟動伺服器
