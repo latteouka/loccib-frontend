@@ -41,6 +41,7 @@ def addnew():
         sql = "INSERT INTO `records` (`header`, `user`, `msg`, `cell_lat`, `cell_lon`, `tri_lat`, `tri_lon`, `url`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
         cursor.execute(sql, ('即時定位測試', 'chun', '訂位成功', '23', '123', '23', '123', 'http://ggfdg.com'))
         cursor.close()
+    connection.commit()
     return f'add new test record'
     
 @app.route("/show", methods=['GET'])
