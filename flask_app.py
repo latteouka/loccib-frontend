@@ -10,13 +10,7 @@ import pymysql.cursors
 
 app = Flask(__name__)
 
-# Connect to the database
-connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
-                             user=os.environ.get('CLEARDB_DATABASE_USER'),
-                             password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
-                             db=os.environ.get('CLEARDB_DATABASE_DB'),
-                             charset='utf8mb4',
-                             cursorclass=pymysql.cursors.DictCursor)
+
 
 
 
@@ -36,6 +30,12 @@ def getname():
 
 @app.route("/addnew", methods=['GET'])
 def addnew():
+	connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+                             user=os.environ.get('CLEARDB_DATABASE_USER'),
+                             password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
+                             db=os.environ.get('CLEARDB_DATABASE_DB'),
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
     with connection.cursor() as cursor:
         # add text value
         sql = "INSERT INTO `records` (`header`, `user`, `msg`, `cell_lat`, `cell_lon`, `tri_lat`, `tri_lon`, `url`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
@@ -45,6 +45,13 @@ def addnew():
     
 @app.route("/show", methods=['GET'])
 def show():
+	connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+                             user=os.environ.get('CLEARDB_DATABASE_USER'),
+                             password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
+                             db=os.environ.get('CLEARDB_DATABASE_DB'),
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+	
     with connection.cursor() as cursor:
         sql = "SELECT * FROM `records` WHERE `user`=%s"
         cursor.execute(sql, ('chun',))
