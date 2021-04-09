@@ -9,16 +9,15 @@
 <section id="no-more-tables">
 	<div class="container">
 		<h3> 使用者：<u>{{user}}</u></h3>
-		<p><b><h3>Target：<u>{{target}}</u></b></p>
+		<b>Target：<u>{{target}}</u></b>
 		<div style="float: left;">
-			<a href=https://loccib.herokuapp.com/show?user={{user}} class="btn btn-secondary btn-lg disabled" role="button" aria-disabled="true">回上頁</a>
+			<p><a href="https://loccib.herokuapp.com/show?user={{user}}">回上頁</a></p>
 		</div>
 		<div style="float: right">
-			<a href="https://loccib.herokuapp.com/export?target={{target}}&user={{user}}" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">輸出CSV</a>
+			<p><a href="https://loccib.herokuapp.com/export?target={{target}}&user={{user}}">輸出CSV</a></p>
 		</div>
 
 		<div style="clear: both;"></div>
-		<hr>
 		
 		
 		<table class="table-bordered table-striped table-condensed cf">
