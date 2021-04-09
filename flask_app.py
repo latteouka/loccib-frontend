@@ -51,7 +51,11 @@ def show():
         cursor.execute(sql, ('chun',))
         result = cursor.fetchone()
         print(result)
-    return f'Hello, Heroku {result["user"]}!'
+
+        header = result["header"]
+        msg = result["msg"]
+    
+    return render_template('records.html',**locals())
 
 
 if __name__ == 'main':
