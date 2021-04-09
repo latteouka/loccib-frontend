@@ -50,7 +50,7 @@ def show():
         result = cursor.fetchall()
         print(result)
 
-    
+    return f'add'
     #return render_template('records.html',**locals())
 
 
