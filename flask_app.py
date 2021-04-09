@@ -74,7 +74,7 @@ def show():
                              cursorclass=pymysql.cursors.DictCursor)
 
     with connection.cursor() as cursor:
-        sql = "SELECT * FROM `records` WHERE `user`=%s ORDER BY `id` DESC LIMIT 3"
+        sql = "SELECT * FROM `records` WHERE `user`=%s ORDER BY `id` DESC LIMIT 100"
         cursor.execute(sql, (user,))
         results = cursor.fetchall()
         #print(result)
