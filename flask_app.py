@@ -74,7 +74,7 @@ def show():
                              cursorclass=pymysql.cursors.DictCursor)
 
     with connection.cursor() as cursor:
-        sql = "SELECT * FROM `records` WHERE `user`=%s"
+        sql = "SELECT * FROM `records` WHERE `user`=%s ORDER BY `id` DESC"
         cursor.execute(sql, (user,))
         results = cursor.fetchall()
         #print(result)
