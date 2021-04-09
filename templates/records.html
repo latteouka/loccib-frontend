@@ -10,21 +10,21 @@
 <table class="table" id="no-more-tables">
     <thead>
         <tr>
-            <th class="numeric">主旨</th>
-            <th class="numeric">時間</th>
-            <th class="numeric">基地台</th>
-            <th class="numeric">三角定位</th>
-            <th class="numeric">備註</th>
+            <th>主旨</th>
+            <th>時間</th>
+            <th>基地台</th>
+            <th>三角定位</th>
+            <th>備註</th>
         <tr>
     </thead>
     <tbody>
     	{% for result in results %}
 	        <tr>
-	            <td data-title="主旨" class="numeric">{{result["header"]}}</td>
-	            <td data-title="時間" class="numeric">{{result["time"]}}</td>
-	            <td data-title="基地台" class="numeric">{{result["cell_lon"]}}</td>
-	            <td data-title="三角定位" class="numeric">{{result["url"]}}</td>
-	            <td data-title="備註" class="numeric">{{result["msg"]}}</td>
+	            <td data-title="主旨">{{result["header"]}}</td>
+	            <td data-title="時間">{{result["time"]}}</td>
+	            <td data-title="基地台">{{result["cell_lon"]}}</td>
+	            <td data-title="三角定位">http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}</td>
+	            <td data-title="備註">{{result["msg"]}}</td>
 	        </tr>
 	    {% endfor %}
     </tbody>
