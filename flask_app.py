@@ -40,6 +40,7 @@ def addnew():
         # add text value
         sql = "INSERT INTO `records` (`header`, `user`, `msg`, `cell_lat`, `cell_lon`, `tri_lat`, `tri_lon`, `url`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
         cursor.execute(sql, ('即時定位測試', 'chun', '訂位成功', '23', '123', '23', '123', 'http://ggfdg.com'))
+        cursor.close()
     return f'add new test record'
     
 @app.route("/show", methods=['GET'])
@@ -49,6 +50,7 @@ def show():
         cursor.execute(sql, ('chun',))
         result = cursor.fetchall()
         print(result)
+        cursor.close()
 
     return f'add'
     #return render_template('records.html',**locals())
