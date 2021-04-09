@@ -2,6 +2,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from flask_bootstrap import Bootstrap
+from flask.ext.bootstrap import Bootstrap
 
 import os
 
