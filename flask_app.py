@@ -135,7 +135,9 @@ def export():
         cursor.close()
 
     cw.writerow((['Target', 'Time', 'Cell', 'Tri_Loc', 'Info']))
-    cw.writerows(results)
+    
+    for result in results:
+        cw.writerow(result[header],result[time],result[header],"http://www.google.com.tw/maps/search/"+result["cell_lat"]+","+result["cell_lon"],"http://www.google.com.tw/maps/search/"+result["tri_lat"]+","+result["tri_lon"],result[msg])
 
     response = make_response(si.getvalue())
     response.headers['Content-Disposition'] = 'attachment; filename=output.csv'
