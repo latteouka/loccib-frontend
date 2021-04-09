@@ -1,0 +1,38 @@
+
+
+{% extends 'base.html' %}
+{% block title %}Records{% endblock %}
+
+
+
+{% block content %}
+<section id="no-more-tables">
+	<div class="container">
+		<br>
+		<h1> 查詢使用者：{{user}}, Target:{{target}}</h1>
+		<br>
+		<table class="table-bordered table-striped table-condensed cf">
+		    <thead class="cf">
+		        <tr>
+		            <th class="numeric">Target</th>
+		            <th class="numeric">Time</th>
+		            <th class="numeric">Cell</th>
+		            <th class="numeric">Tri_Loc</th>
+		            <th class="numeric">Info</th>
+		        <tr>
+		    </thead>
+		    <tbody>
+		    	{% for result in results %}
+			        <tr>
+			            <td data-title="Target" class="numeric">{{result["header"]}}</td>
+			            <td data-title="Time" class="numeric">{{result["time"]}}</td>
+			            <td data-title="Cell">{{result["cell_lat"]}},{{result["cell_lon"]}}<br><a href="http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}" target="_blank">http://www.google.com.tw/maps/search/{{result["cell_lat"]}},{{result["cell_lon"]}}</a></td>
+			            <td data-title="Tri_Loc">{{result["tri_lat"]}},{{result["tri_lon"]}}<br><a href="http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}" target="_blank">http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}</a></td>
+			            <td data-title="Info">{{result["msg"]}}</td>
+			        </tr>
+			    {% endfor %}
+		    </tbody>
+		</table>
+	</div>
+</section>
+{% endblock %}
