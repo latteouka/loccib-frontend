@@ -57,7 +57,7 @@ def show():
         sql = "SELECT * FROM `records` WHERE `user`=%s"
         cursor.execute(sql, ('chun',))
         results = cursor.fetchall()
-        print(result)
+        #print(result)
         cursor.close()
 
     
