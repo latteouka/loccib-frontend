@@ -41,8 +41,8 @@ def addnew():
     time = request.args.get('time')
     stat = request.args.get('stat')
 
-    url_cell = "http://www.google.com.tw/maps/search/"+cell_lat+","+cell_lon
-    url_tri = "http://www.google.com.tw/maps/search/"+tri_lat+","+tri_lon
+    #url_cell = "http://www.google.com.tw/maps/search/"+cell_lat+","+cell_lon
+    #url_tri = "http://www.google.com.tw/maps/search/"+tri_lat+","+tri_lon
 
     connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
                              user=os.environ.get('CLEARDB_DATABASE_USER'),
@@ -55,9 +55,9 @@ def addnew():
         sql = "INSERT INTO `records` (`header`, `user`, `msg`, `cell_lat`, `cell_lon`, `tri_lat`, `tri_lon`, `url`, `time`, `stat`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
         
         if tri_lat != 0:
-            cursor.execute(sql, (header, user, msg, cell_lat, cell_lon, tri_lat, tri_lon, url_tri, stat))
+            cursor.execute(sql, (header, user, msg, cell_lat, cell_lon, tri_lat, tri_lon, url_tri, time, stat))
         else:
-            cursor.execute(sql, (header, user, msg, cell_lat, cell_lon, tri_lat, tri_lon, url_cell, stat))
+            cursor.execute(sql, (header, user, msg, cell_lat, cell_lon, tri_lat, tri_lon, url_cell, time, stat))
         
         cursor.close()
 
