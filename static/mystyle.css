@@ -23,8 +23,8 @@
 		/* Behave  like a "row" */
 		border: none;
 		border-bottom: 1px solid #eee; 
-		padding-left: 50%; 
-		white-space: nowrap;
+		position: relative;
+		white-space: normal;
 		text-align:left;
 
 	}
