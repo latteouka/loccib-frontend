@@ -1,11 +1,16 @@
-<!DOCTYPE html>
 
-{% extends "base.html" %}
 
-{% block page_content %}
-<div class="page-header">
-    <h1>Records</h1>
-        <table class="table">
+{% extends "bootstrap/base.html" %}
+{% block title %}This is an example page{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+  <!-- ... -->
+</div>
+{% endblock %}
+
+{% block content %}
+<table class="table">
     <thead>
         <tr>
             <th>name</th>
@@ -14,11 +19,13 @@
         <tr>
     </thead>
     <tbody>
+        {% for person in people %}
         <tr>
-            <td>testest</td>
-            <td>etsets</td>
-            <td>tsetestse</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+            <td>{{ person.option }}</td>
         </tr>
+        {% endfor %}
     </tbody>
 </table>
 {% endblock %}
