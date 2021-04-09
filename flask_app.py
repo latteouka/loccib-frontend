@@ -119,6 +119,13 @@ def export():
 
     si = io.StringIO()
     cw = csv.writer(si)
+
+    connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+                             user=os.environ.get('CLEARDB_DATABASE_USER'),
+                             password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
+                             db=os.environ.get('CLEARDB_DATABASE_DB'),
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
     
     with connection.cursor() as cursor:
         sql = "SELECT * FROM `records` WHERE `user`=%s AND `header`=%s ORDER BY `id` DESC"
@@ -127,7 +134,7 @@ def export():
         
         cursor.close()
 
-    cw.writerow([i[0] for i in c.description])
+    cw.writerow((['Target', 'Time', 'Cell', 'Tri_Loc', 'Info']))
     cw.writerows(results)
 
     response = make_response(si.getvalue())
