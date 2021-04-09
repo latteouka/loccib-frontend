@@ -7,7 +7,7 @@
 
 {% block content %}
 <h1>{{user}}</h1>
-<table class="no-more-tables">
+<table id="#no-more-tables">
     <thead>
         <tr>
             <th class="numeric">主旨</th>
@@ -20,11 +20,11 @@
     <tbody>
     	{% for result in results %}
 	        <tr>
-	            <td data-title="主旨">{{result["header"]}}</td>
-	            <td data-title="時間">{{result["time"]}}</td>
-	            <td data-title="基地台">{{result["cell_lon"]}}</td>
-	            <td data-title="三角定位">{{result["url"]}}</td>
-	            <td data-title="備註">{{result["msg"]}}</td>
+	            <td data-title="主旨" class="numeric">{{result["header"]}}</td>
+	            <td data-title="時間" class="numeric">{{result["time"]}}</td>
+	            <td data-title="基地台" class="numeric">{{result["cell_lon"]}}</td>
+	            <td data-title="三角定位" class="numeric">{{result["url"]}}</td>
+	            <td data-title="備註" class="numeric">{{result["msg"]}}</td>
 	        </tr>
 	    {% endfor %}
     </tbody>
