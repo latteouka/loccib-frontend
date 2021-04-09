@@ -22,7 +22,7 @@
 	#no-more-tables td { 
 		/* Behave  like a "row" */
 		border: none;
-		border-bottom: 1px solid #5e5e5e; 
+		border-bottom: 1px solid #c5c3c3; 
 		position: relative;
 		padding-left: 30%; 
 		white-space: normal;
