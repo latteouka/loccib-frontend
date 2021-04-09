@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-from flask_bootstrap import Bootstrap
 
 import os
 
@@ -10,7 +9,6 @@ import pymysql.cursors
 
 
 app = Flask(__name__)
-bootstrap = Bootstrap(app)
 
 # Connect to the database
 connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
