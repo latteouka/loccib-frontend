@@ -60,8 +60,8 @@ def show():
         print(result)
         cursor.close()
 
-    return f'add'
-    #return render_template('records.html',**locals())
+    
+    return render_template('records.html',**locals())
 
 
 if __name__ == 'main':
