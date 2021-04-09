@@ -52,8 +52,6 @@ def show():
         result = cursor.fetchone()
         print(result)
 
-        header = result["header"]
-        msg = result["msg"]
     
     return render_template('records.html',**locals())
 
