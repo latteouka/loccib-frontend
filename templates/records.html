@@ -15,11 +15,13 @@
         <tr>
     </thead>
     <tbody>
-        <tr>
-            <td>{{result[0]["header"]}}</td>
-            <td>ddddd</td>
-            <td>ssssss</td>
-        </tr>
+    	{% for result in results %}
+	        <tr>
+	            <td>{{result["header"]}}</td>
+	            <td>ddddd</td>
+	            <td>ssssss</td>
+	        </tr>
+	    {% endblock %}
     </tbody>
 </table>
 {% endblock %}
