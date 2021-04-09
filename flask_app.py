@@ -30,7 +30,7 @@ def getname():
 
 @app.route("/addnew", methods=['GET'])
 def addnew():
-	connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+    connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
                              user=os.environ.get('CLEARDB_DATABASE_USER'),
                              password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
                              db=os.environ.get('CLEARDB_DATABASE_DB'),
@@ -45,13 +45,13 @@ def addnew():
     
 @app.route("/show", methods=['GET'])
 def show():
-	connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+    connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
                              user=os.environ.get('CLEARDB_DATABASE_USER'),
                              password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
                              db=os.environ.get('CLEARDB_DATABASE_DB'),
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
-	
+
     with connection.cursor() as cursor:
         sql = "SELECT * FROM `records` WHERE `user`=%s"
         cursor.execute(sql, ('chun',))
