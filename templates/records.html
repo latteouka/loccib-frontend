@@ -24,8 +24,8 @@
 			        <tr>
 			            <td data-title="主旨">{{result["header"]}}</td>
 			            <td data-title="時間">{{result["time"]}}</td>
-			            <td data-title="基地台" class="numeric"><a href="http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}" target="_blank">http://www.google.com.tw/maps/search/{{result["cell_lat"]}},{{result["cell_lon"]}}</a></td>
-			            <td data-title="三角定位" class="numeric"><a href="http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}" target="_blank">http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}</a></td>
+			            <td data-title="基地台" class="numeric">{{result["cell_lat"]}},{{result["cell_lon"]}}<br><a href="http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}" target="_blank">http://www.google.com.tw/maps/search/{{result["cell_lat"]}},{{result["cell_lon"]}}</a></td>
+			            <td data-title="三角定位" class="numeric">{{result["tri_lat"]}},{{result["tri_lon"]}}<br><a href="http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}" target="_blank">http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}</a></td>
 			            <td data-title="備註">{{result["msg"]}}</td>
 			        </tr>
 			    {% endfor %}
