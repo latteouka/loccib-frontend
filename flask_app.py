@@ -45,7 +45,7 @@ def addnew():
 @app.route("/show", methods=['GET'])
 def show():
     with connection.cursor() as cursor:
-        sql = "SELECT `header`, `msg` FROM `records` WHERE `user`=%s"
+        sql = "SELECT * FROM `records` WHERE `user`=%s"
         cursor.execute(sql, ('chun',))
         result = cursor.fetchone()
         print(result)
