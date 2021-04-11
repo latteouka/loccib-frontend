@@ -18,8 +18,7 @@ import io
 
 
 app = Flask(__name__)
-
-app.secret_key = config.get('flask', '268ffece5b07530333f1695850c5febd')
+app.secret_key = '268ffece5b07530333f1695850c5febd'
 
 login_manager = LoginManager()
 login_manager.init_app(app)
