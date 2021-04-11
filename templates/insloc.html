@@ -25,6 +25,7 @@
 		<table class="table-bordered table-striped table-condensed cf">
 		    <thead class="cf">
 		        <tr>
+		        	<th class="numeric">No</th>
 		            <th class="numeric">Keyword</th>
 		            <th class="numeric">Header</th>
 		            <th class="numeric">Number</th>
@@ -34,9 +35,12 @@
 		        <tr>
 		    </thead>
 		    <tbody>
+		    	{% i=1 %}
 		    	{% for result in results %}
+		    		{% i = i + 1 %}
 			        <tr>
-			            <td data-title="Keyword" class="numeric"><b><a href="https://loccib.herokuapp.com/target?target={{result["header"]}}&user={{result["user"]}}">{{result["keyword"]}}</a></b></td>
+			        	<td data-title="Keyword" class="numeric"><b>{{i}}</a></b></td>
+			            <td data-title="Keyword" class="numeric"><b>{{result["keyword"]}}</a></b></td>
 			            <td data-title="Header" class="numeric">{{result["header"]}}</td>
 			            <td data-title="Number" class="numeric">{{result["number"]}}</td>
 			            <td data-title="URL" class="numeric">{{result["url"]}}</td>
