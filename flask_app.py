@@ -238,7 +238,7 @@ def insloc():
                              cursorclass=pymysql.cursors.DictCursor)
 
     with connection.cursor() as cursor:
-        sql = "SELECT * FROM `inslocs` DESC"
+        sql = "SELECT * FROM `inslocs` ORDER BY `id` ASC"
         cursor.execute(sql, )
         results = cursor.fetchall()
         #print(result)
