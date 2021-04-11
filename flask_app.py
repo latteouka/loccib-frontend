@@ -58,9 +58,7 @@ users = {'chun': {'password': 'L26311615'},}
 
 
 
-@app.route('/')
-def hello():
-    return f'Hello, Heroku!'
+
 
 
 
@@ -104,7 +102,7 @@ def addnew():
     connection.commit()
     return f'add new test record'
     
-@app.route("/show", methods=['GET'])
+@app.route("/", methods=['GET'])
 @login_required
 def show():
 
