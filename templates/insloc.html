@@ -28,18 +28,22 @@
 		    <thead class="cf">
 		        <tr>
 		            <th class="numeric">Keyword</th>
+		            <th class="numeric">Header</th>
 		            <th class="numeric">Number</th>
 		            <th class="numeric">URL</th>
 		            <th class="numeric">Status</th>
+		            <th class="numeric">Delete</th>
 		        <tr>
 		    </thead>
 		    <tbody>
 		    	{% for result in results %}
 			        <tr>
 			            <td data-title="Keyword" class="numeric"><b><a href="https://loccib.herokuapp.com/target?target={{result["header"]}}&user={{result["user"]}}">{{result["keyword"]}}</a></b></td>
+			            <td data-title="Header" class="numeric">{{result["header"]}}</td>
 			            <td data-title="Number" class="numeric">{{result["number"]}}</td>
 			            <td data-title="URL" class="numeric">{{result["url"]}}</td>
 			            <td data-title="Status" class="numeric">{{result["status"]}}</td>
+			            <td data-title="Status" class="numeric"><a href="/" class="btn-sm btn-danger" role="button">Delete</a></td>
 			        </tr>
 			    {% endfor %}
 		    </tbody>
