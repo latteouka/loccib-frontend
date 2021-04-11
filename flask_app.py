@@ -252,6 +252,7 @@ def insloc():
 def inslocadd():
 
     keyword = request.form.get('keyword')
+    print(keyword)
     header = request.form.get('header')
     number = request.form.get('number')
     url = request.form.get('url')
