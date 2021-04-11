@@ -132,7 +132,7 @@ def show():
 def target():
 
     target = request.args.get('target')
-    user = request.args.get('user')
+    user = current_user.get_id()
 
     connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
                              user=os.environ.get('CLEARDB_DATABASE_USER'),
@@ -156,7 +156,7 @@ def target():
 def export():
 
     target = request.args.get('target')
-    user = request.args.get('user')
+    user = current_user.get_id()
 
     si = io.StringIO()
     cw = csv.writer(si)
