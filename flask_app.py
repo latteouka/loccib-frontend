@@ -299,5 +299,28 @@ def inslocdele():
     connection.commit()
     return redirect(url_for('insloc'))
 
+@app.route("/status", methods=['GET'])
+def status():
+    connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+                             user=os.environ.get('CLEARDB_DATABASE_USER'),
+                             password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
+                             db=os.environ.get('CLEARDB_DATABASE_DB'),
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+
+    with connection.cursor() as cursor:
+        
+        sql = "SELECT * FROM `status` WHERE `id`=4"
+        cursor.execute(sql, )
+        results = cursor.fetch()
+        #print(result)
+        cursor.close()
+
+    status = results["keyword"]
+
+    return status
+
+
+
 if __name__ == 'main':
     app.run() #啟動伺服器
