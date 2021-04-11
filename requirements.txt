@@ -2,3 +2,4 @@ flask
 bootstrap-flask
 gunicorn
 PyMySQL
+Flask-Login
