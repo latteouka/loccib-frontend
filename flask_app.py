@@ -247,6 +247,33 @@ def insloc():
     
     return render_template('insloc.html',**locals())
 
+@app.route("/inslocadd", methods=['POST'])
+@login_required
+def inslocadd():
+
+    keyword = request.form.get('keyword')
+    header = request.form.get('header')
+    number = request.form.get('number')
+    url = request.form.get('url')
+    status = request.form.get('status')
+
+    connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+                             user=os.environ.get('CLEARDB_DATABASE_USER'),
+                             password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
+                             db=os.environ.get('CLEARDB_DATABASE_DB'),
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+
+    with connection.cursor() as cursor:
+        sql = "INSERT INTO `inslocs` (`keyword`, `header`, `number`, `url`, `status`) VALUES (%s, %s, %s, %s, %s)"
+        
+        cursor.execute(sql, (keyword, header, number, url, status))
+        
+        cursor.close()
+
+    connection.commit()
+    return render_template('insloc.html')
+
 
 if __name__ == 'main':
     app.run() #啟動伺服器
