@@ -312,11 +312,11 @@ def status():
         
         sql = "SELECT * FROM `status` WHERE `id`=4"
         cursor.execute(sql, )
-        results = cursor.fetchall()
+        results = cursor.fetchone()
         #print(result)
         cursor.close()
 
-    status = results[0]
+    status = results[0]["keyword"]
 
     return status
 
