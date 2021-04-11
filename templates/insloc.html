@@ -35,11 +35,8 @@
 		        <tr>
 		    </thead>
 		    <tbody>
-		    	{% count=1 %}
 		    	{% for result in results %}
-		    		{% count = count + 1 %}
 			        <tr>
-			        	<td data-title="Keyword" class="numeric"><b>{{count}}</a></b></td>
 			            <td data-title="Keyword" class="numeric"><b>{{result["keyword"]}}</a></b></td>
 			            <td data-title="Header" class="numeric">{{result["header"]}}</td>
 			            <td data-title="Number" class="numeric">{{result["number"]}}</td>
