@@ -35,7 +35,7 @@
 		    <tbody>
 		    	{% for result in results %}
 			        <tr>
-			            <td data-title="Target" class="numeric"><b>{{result["header"]}}<input type="text" value="THIS GETS COPIED" id="CopyThis" readonly></b></td>
+			            <td data-title="Target" class="numeric"><b>{{result["header"]}}</b></td>
 			            <td data-title="Time" class="numeric">{{result["time"]}}</td>
 			            <td data-title="Cell" class="numeric"><a href="http://www.google.com.tw/maps/search/{{result["cell_lat"]}},{{result["cell_lon"]}}" target="_blank">{{result["cell_lat"]}},{{result["cell_lon"]}}</a></td>
 			            <td data-title="Tri_Loc" class="numeric"><a href="http://www.google.com.tw/maps/search/{{result["tri_lat"]}},{{result["tri_lon"]}}" target="_blank">{{result["tri_lat"]}},{{result["tri_lon"]}}</a></td>
