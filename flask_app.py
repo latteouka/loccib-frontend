@@ -217,8 +217,7 @@ def logout():
     使用者 = current_user.get_id()
     logout_user()
     flash(f'{使用者}！掰掰！')
-    #return render_template('login.html')
-    redirect(url_for('/'))
+    return render_template('login.html')
 
 
 if __name__ == 'main':
