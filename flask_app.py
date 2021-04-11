@@ -191,7 +191,7 @@ def export():
 
     disposition = "attachment; filename=output-" + user + "-" + target + "-" + timenow + ".csv"
 
-    response.headers['Content-Disposition'] = disposition
+    response.headers['Content-Disposition'] = disposition.encode('utf-8')
     response.headers["Content-type"] = "text/csv"
     return response
 
