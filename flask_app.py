@@ -239,7 +239,7 @@ def insloc():
 
     with connection.cursor() as cursor:
         sql = "SELECT * FROM `inslocs` DESC"
-        cursor.execute(sql, (user,))
+        cursor.execute(sql, )
         results = cursor.fetchall()
         #print(result)
         cursor.close()
