@@ -106,7 +106,9 @@ def addnew():
 @login_required
 def show():
 
-    user = request.args.get('user')
+    user = current_user.get_id()
+
+    #user = request.args.get('user')
 
     connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
                              user=os.environ.get('CLEARDB_DATABASE_USER'),
