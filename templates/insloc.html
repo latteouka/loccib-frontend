@@ -1,0 +1,49 @@
+
+
+{% extends 'base.html' %}
+{% block title %}Records{% endblock %}
+
+
+
+{% block content %}
+<section id="no-more-tables">
+	<div class="container">
+
+		<h3>INSLOC</h3>
+
+		<div style="float: left;">
+			
+		</div>
+		<div style="float: right">
+			<a href="/logout" class="btn btn-success" role="button">新增</a>
+		</div>
+
+		<div style="clear: both;"></div>
+
+		<hr>
+
+		<hr>
+		
+		<table class="table-bordered table-striped table-condensed cf">
+		    <thead class="cf">
+		        <tr>
+		            <th class="numeric">Keyword</th>
+		            <th class="numeric">Number</th>
+		            <th class="numeric">URL</th>
+		            <th class="numeric">Status</th>
+		        <tr>
+		    </thead>
+		    <tbody>
+		    	{% for result in results %}
+			        <tr>
+			            <td data-title="Keyword" class="numeric"><b><a href="https://loccib.herokuapp.com/target?target={{result["header"]}}&user={{result["user"]}}">{{result["keyword"]}}</a></b></td>
+			            <td data-title="Number" class="numeric">{{result["number"]}}</td>
+			            <td data-title="URL" class="numeric">{{result["url"]}}</td>
+			            <td data-title="Status" class="numeric">{{result["status"]}}</td>
+			        </tr>
+			    {% endfor %}
+		    </tbody>
+		</table>
+	</div>
+</section>
+{% endblock %}
