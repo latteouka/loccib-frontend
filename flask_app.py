@@ -2,6 +2,9 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from flask import make_response
+from flask import url_for
+from flask import redirect
+from flask import flash
 
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 
@@ -16,7 +19,42 @@ import io
 
 app = Flask(__name__)
 
+app.secret_key = config.get('flask', '268ffece5b07530333f1695850c5febd')
 
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.session_protection = "strong"
+login_manager.login_view = 'login'
+login_manager.login_message = '請登入！！'
+
+class User(UserMixin):
+    pass
+
+@login_manager.user_loader
+def user_loader(使用者):
+    if 使用者 not in users:
+        return
+
+    user = User()
+    user.id = 使用者
+    return user
+
+@login_manager.request_loader
+def request_loader(request):
+    使用者 = request.form.get('user_id')
+    if 使用者 not in users:
+        return
+
+    user = User()
+    user.id = 使用者
+
+    # DO NOT ever store passwords in plaintext and always compare password
+    # hashes using constant-time comparison!
+    user.is_authenticated = request.form['password'] == users[使用者]['password']
+
+    return user
+
+users = {'chun': {'password': 'L26311615'},}
 
 
 
@@ -68,6 +106,7 @@ def addnew():
     return f'add new test record'
     
 @app.route("/show", methods=['GET'])
+@login_required
 def show():
 
     user = request.args.get('user')
@@ -90,6 +129,7 @@ def show():
     return render_template('records.html',**locals())
 
 @app.route("/target", methods=['GET'])
+@login_required
 def target():
 
     target = request.args.get('target')
@@ -145,6 +185,29 @@ def export():
     response.headers['Content-Disposition'] = 'attachment; filename=output.csv'
     response.headers["Content-type"] = "text/csv"
     return response
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        return render_template("login.html")
+    
+    使用者 = request.form['user_id']
+    if (使用者 in users) and (request.form['password'] == users[使用者]['password']):
+        user = User()
+        user.id = 使用者
+        login_user(user)
+        flash(f'Hi, {使用者}！')
+        return redirect(url_for('from_start'))
+
+    flash('登入失敗了...')
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    使用者 = current_user.get_id()
+    logout_user()
+    flash(f'{使用者}！掰掰！')
+    return render_template('login.html')
 
 
 if __name__ == 'main':
