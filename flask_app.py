@@ -316,7 +316,7 @@ def status():
         #print(result)
         cursor.close()
 
-    status = results["keyword"]
+    status = results[0]
 
     return status
 
