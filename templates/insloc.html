@@ -27,12 +27,12 @@
 		    <tbody>
 		    	{% for result in results %}
 			        <tr>
-			            <td data-title="Keyword" class="numeric"><b>{{result["keyword"]}}</a></b></td>
-			            <td data-title="Header" class="numeric">{{result["header"]}}</td>
-			            <td data-title="Number" class="numeric">{{result["number"]}}</td>
-			            <td data-title="URL" class="numeric">{{result["url"]}}</td>
-			            <td data-title="Status" class="numeric">{{result["status"]}}</td>
-			            <td data-title="Status" class="numeric"><a href="/inslocdele?id={{result["id"]}}" class="btn-sm btn-danger" role="button">Delete</a></td>
+			            <td data-title="Keyword" class="numeric targetk"><b>{{result["keyword"]}}</a></b></td>
+			            <td data-title="Header" class="numeric targeth">{{result["header"]}}</td>
+			            <td data-title="Number" class="numeric targetn">{{result["number"]}}</td>
+			            <td data-title="URL" class="numeric targetu">{{result["url"]}}</td>
+			            <td data-title="Status" class="numeric targets">{{result["status"]}}</td>
+			            <td data-title="Delete" class="numeric"><a href="/inslocdele?id={{result["id"]}}" class="btn-sm btn-danger" role="button">Delete</a></td>
 			        </tr>
 			    {% endfor %}
 		    </tbody>
