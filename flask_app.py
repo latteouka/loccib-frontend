@@ -196,7 +196,7 @@ def login():
         user.id = 使用者
         login_user(user)
         flash(f'Hi, {使用者}！')
-        return redirect(url_for('from_start'))
+        return redirect(url_for('show'))
 
     flash('登入失敗了...')
     return render_template('login.html')
