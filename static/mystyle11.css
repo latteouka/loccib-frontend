@@ -35,10 +35,10 @@
 		/* Top/left values mimic padding */
 		top: 1px;
 		left: 1px;
-		width: 45%; 
-		padding-right: 5px; 
+		width: 40%; 
+		padding-right: 25px; 
 		white-space: nowrap;
-		text-align:left;
+		text-align:right;
 		font-weight: bold;
 	}
  
