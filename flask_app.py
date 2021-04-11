@@ -58,6 +58,7 @@ def request_loader(request):
 users = {'chun': {'password': 'L26311615'},
         'loveve': {'password': 'Aa123123'},
         'loveve2': {'password': 'Aa123123'},
+        'pa781022': {'password': 'Aa123456'},
 }
 
 
