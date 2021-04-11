@@ -16,7 +16,7 @@ import pymysql.cursors
 import csv
 import io
 
-import time
+from datetime import datetime,timezone,timedelta
 
 
 app = Flask(__name__)
@@ -184,8 +184,10 @@ def export():
 
     response = make_response(si.getvalue())
 
-    datenow = time.strftime("%Y/%m/%d")
-    timenow = time.strftime("%H:%M:%S")
+    dt1 = datetime.utcnow().replace(tzinfo=timezone.utc)
+    dt2 = dt1.astimezone(timezone(timedelta(hours=8))) # 轉換時區 -> 東八區
+
+    timenow = dt2.strftime("%Y-%m-%d %H:%M:%S")
 
     disposition = "attachment; filename=output-" + user + "-" + datenow + "-" + timenow + ".csv"
 
