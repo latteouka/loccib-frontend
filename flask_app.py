@@ -187,7 +187,7 @@ def export():
     datenow = time.strftime("%Y/%m/%d")
     timenow = time.strftime("%H:%M:%S")
 
-    disposition = "attachment; filename=output-" + user + "-" + target + "-" + datenow + "-" + timenow + ".csv"
+    disposition = "attachment; filename=output-" + user + "-" + target +".csv"
 
     response.headers['Content-Disposition'] = disposition
     response.headers["Content-type"] = "text/csv"
@@ -204,7 +204,6 @@ def login():
         user = User()
         user.id = 使用者
         login_user(user)
-        flash(f'Hi, {使用者}！')
         return redirect(url_for('show'))
 
     flash('登入失敗了...')
