@@ -220,11 +220,5 @@ def logout():
     return render_template('login.html')
 
 
-#for crawler testing
-@app.route('/test')
-def test():
-    return render_template('test.html')
-
-
 if __name__ == 'main':
     app.run() #啟動伺服器
