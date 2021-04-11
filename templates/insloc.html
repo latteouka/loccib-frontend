@@ -11,15 +11,6 @@
 
 		<h3>INSLOC</h3>
 
-		<div style="float: left;">
-			
-		</div>
-		<div style="float: right">
-			<a href="/logout" class="btn btn-success" role="button">新增</a>
-		</div>
-
-		<div style="clear: both;"></div>
-
 		<hr>
 		
 		<table class="table-bordered table-striped table-condensed cf">
@@ -49,15 +40,16 @@
 
 		<hr>
 
-		<form method="post" action="/inslocadd">
-      		<input type="text" id="keyword" name="keyword" placeholder="keyword">
-      		<input type="text" id="header" name="header" placeholder="header">
-      		<input type="text" id="number" name="number" placeholder="number">
-      		<input type="text" id="url" name="url" placeholder="url">
-      		<input  type="hidden" id="status" value="0" name="status">
-      		<input type="submit" class="fadeIn fourth" value="新增">
-    	</form>
-
+		<div class="wrapper">
+			<form method="post" action="/inslocadd">
+	      		<input type="text" id="keyword" name="keyword" placeholder="keyword">
+	      		<input type="text" id="header" name="header" placeholder="header">
+	      		<input type="text" id="number" name="number" placeholder="number">
+	      		<input type="text" id="url" name="url" placeholder="url">
+	      		<input  type="hidden" id="status" value="0" name="status">
+	      		<input type="submit" class="fourth" value="新增">
+	    	</form>
+	    </div>
 	</div>
 </section>
 {% endblock %}
