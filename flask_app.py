@@ -16,7 +16,7 @@ import pymysql.cursors
 import csv
 import io
 
-from datetime import datetime
+import time
 
 
 app = Flask(__name__)
