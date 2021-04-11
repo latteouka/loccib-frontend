@@ -16,6 +16,8 @@ import pymysql.cursors
 import csv
 import io
 
+from datetime import datetime
+
 
 app = Flask(__name__)
 app.secret_key = '268ffece5b07530333f1695850c5febd'
@@ -151,7 +153,7 @@ def target():
     
     return render_template('target_records.html',**locals())
 
-
+#輸出csv
 @app.route('/export', methods=['GET'])
 def export():
 
@@ -181,10 +183,17 @@ def export():
         cw.writerow(([result["header"],result["time"],"http://www.google.com.tw/maps/search/"+result["cell_lat"]+","+result["cell_lon"],"http://www.google.com.tw/maps/search/"+result["tri_lat"]+","+result["tri_lon"],result["msg"]]))
 
     response = make_response(si.getvalue())
-    response.headers['Content-Disposition'] = 'attachment; filename=output.csv'
+
+    datenow = time.strftime("%Y/%m/%d")
+    timenow = time.strftime("%H:%M:%S")
+
+    disposition = "attachment; filename=output-" + user + "-" + target + "-" datenow + "-" + timenow + ".csv"
+
+    response.headers['Content-Disposition'] = disposition
     response.headers["Content-type"] = "text/csv"
     return response
 
+#登入頁面
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -201,6 +210,7 @@ def login():
     flash('登入失敗了...')
     return render_template('login.html')
 
+#登出
 @app.route('/logout')
 def logout():
     使用者 = current_user.get_id()
