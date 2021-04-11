@@ -189,7 +189,7 @@ def export():
 
     timenow = dt2.strftime("%Y-%m-%d %H:%M:%S")
 
-    disposition = "attachment; filename=output-" + user + "-" + datenow + "-" + timenow + ".csv"
+    disposition = "attachment; filename=output-" + user + "-" + timenow + ".csv"
 
     response.headers['Content-Disposition'] = disposition
     response.headers["Content-type"] = "text/csv"
