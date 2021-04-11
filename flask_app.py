@@ -273,7 +273,7 @@ def inslocadd():
         cursor.close()
 
     connection.commit()
-    return render_template('insloc.html')
+    return redirect(url_for('insloc'))
 
 
 if __name__ == 'main':
