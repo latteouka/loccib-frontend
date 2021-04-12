@@ -1,11 +1,3 @@
-time = "2021-03-02 08:07:16\n2021-03-03 18:07:16\n2021-03-05 08:12:16";
-
-ip = "1.168.110.141\n1.168.110.141\n27.247.36.98"
-
-document.getElementById("time").value = time;
-
-document.getElementById("ip").value = ip;
-
 
 
 function clickcopy() {
