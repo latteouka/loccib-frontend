@@ -321,7 +321,7 @@ def status():
 
 
 @app.route("/insaddnew", methods=['GET'])
-def addnew():
+def insaddnew():
     # read parameters
     msg = request.args.get('msg')
     msg2 = request.args.get('msg2')
