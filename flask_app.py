@@ -106,7 +106,7 @@ def addnew():
         cursor.close()
 
     connection.commit()
-    return f'add new test record'
+    return f'add new record'
     
 @app.route("/", methods=['GET'])
 @login_required
@@ -317,6 +317,38 @@ def status():
     status = results["keyword"]
 
     return status
+
+
+
+@app.route("/insaddnew", methods=['GET'])
+def addnew():
+    # read parameters
+    msg = request.args.get('msg')
+    msg2 = request.args.get('msg2')
+    header = request.args.get('header')
+    number = request.args.get('number')
+    cell_lat = request.args.get('cell_lat')
+    cell_lon = request.args.get('cell_lon')
+    tri_lat = request.args.get('tri_lat')
+    tri_lon = request.args.get('tri_lon')
+    time = request.args.get('time')
+
+    connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+                             user=os.environ.get('CLEARDB_DATABASE_USER'),
+                             password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
+                             db=os.environ.get('CLEARDB_DATABASE_DB'),
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+    with connection.cursor() as cursor:
+        # add text value
+        sql = "INSERT INTO `insredords` (`msg`, `msg2`, `header`, `number`, `cell_lat`, `cell_lon`, `tri_lat`, `tri_lon`, `time`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        
+        cursor.execute(sql, (msg, msg2, header, number, cell_lat, cell_lon, tri_lat, tri_lon, time))
+        
+        cursor.close()
+
+    connection.commit()
+    return f'add new insrecord'
 
 
 
