@@ -341,7 +341,7 @@ def insaddnew():
                              cursorclass=pymysql.cursors.DictCursor)
     with connection.cursor() as cursor:
         # add text value
-        sql = "INSERT INTO `insredords` (`msg`, `msg2`, `header`, `number`, `cell_lat`, `cell_lon`, `tri_lat`, `tri_lon`, `time`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        sql = "INSERT INTO `insrecords` (`msg`, `msg2`, `header`, `number`, `cell_lat`, `cell_lon`, `tri_lat`, `tri_lon`, `time`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
         
         cursor.execute(sql, (msg, msg2, header, number, cell_lat, cell_lon, tri_lat, tri_lon, time))
         
