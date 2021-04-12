@@ -86,22 +86,40 @@ function getresult() {
 
 
 function clickdownload() {
+  
+  var time = document.getElementById("time").value;
+  var lines = time.split('\n');
 
-  result = document.getElementById("result").value
+  var ip = document.getElementById("ip").value;
+  var ips = ip.split('\n');
 
-  var results = result.split('\n');
+  results = []
+
+  if(lines.length !== ips.length) {
+    alert("時間跟IP數量不相等！");
+    return;
+  }
+
+  var i;
+  for (i = 0; i < lines.length; i++) { 
+    results.push([ips[i],lines[i]])
+  }
 
   let csvContent = "data:text/csv;charset=utf-8,";
 
   results.forEach(function(rowArray) {
-    let result = results.join(",");
-    csvContent += row + "\r\n";
+    let result = rowArray.join(",");
+    csvContent += result + "\r\n";
   });
 
 
   var encodedUri = encodeURI(csvContent);
-  window.open(encodedUri);
-}
+  var link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "my_data.csv");
+  document.body.appendChild(link); // Required for FF
 
+  link.click();
+}
 
 
