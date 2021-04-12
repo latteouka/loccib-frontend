@@ -228,7 +228,6 @@ def logout():
 #
 
 @app.route("/insloc", methods=['GET'])
-@login_required
 def insloc():
 
     connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
@@ -249,7 +248,6 @@ def insloc():
     return render_template('insloc.html',**locals())
 
 @app.route("/inslocadd", methods=['POST'])
-@login_required
 def inslocadd():
 
     keyword = request.form.get('keyword')
@@ -278,7 +276,6 @@ def inslocadd():
 
 
 @app.route("/inslocdele", methods=['GET'])
-@login_required
 def inslocdele():
 
     insloc_id = request.args.get('id')
