@@ -7,33 +7,36 @@
 
 {% block content %}
 <div class="container">
-        <div class="container">
-            <h3>datetime formatter IP投單程式用</h3>
-            <h4>時間格式：2021-03-02 08:07:16 -> 202103020807<br>　　　　　2021-03-02 08:07 　   -> 202103020807</h4>
-            <hr>
-            <div class="row justify-content-center align-items-center">
-                <div class="col-4" id="div1">
-                    <div class="form-group">
-                        <label for="time" class="col-form-label">Step 1: 把時間貼進來格式化</label>
-                        <textarea class="form-control" name="input1" rows="20" id="time"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" onclick="time_format()" id="format">格式化!</button>
+    <div class="container">
+        <h3>datetime formatter IP投單程式用</h3>
+        <h4>時間格式：2021-03-02 08:07:16 -> 202103020807<br>　　　　　2021-03-02 08:07 　   -> 202103020807</h4>
+        <hr>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-4" id="div1">
+                <div class="form-group">
+                    <label for="time" class="col-form-label">Step 1: 把時間貼進來格式化</label>
+                    <textarea class="form-control" name="input1" rows="20" id="time"></textarea>
                 </div>
-                <div class="col-4" id="div2">
-                    <div class="form-group">
-                        <label for="ip" class="col-form-label">Step 2: 把IP貼進來</label>
-                        <textarea class="form-control" name="input2" rows="20" id="ip"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" onclick="getresult()" id="result   _button">投單程式格式!</button>
+                <button type="submit" class="btn btn-primary" onclick="time_format()" id="format">格式化!</button>
+            </div>
+            <div class="col-4" id="div2">
+                <div class="form-group">
+                    <label for="ip" class="col-form-label">Step 2: 把IP貼進來</label>
+                    <textarea class="form-control" name="input2" rows="20" id="ip"></textarea>
                 </div>
-                <div class="col-4" id="div3">
-                    <div class="form-group">
-                        <label for="result" class="col-form-label">Result</label>
-                        <textarea class="form-control" name="result" rows="20" id="result"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" onclick="clickcopy()">複製</button>
+                <button type="submit" class="btn btn-primary" onclick="getresult()" id="result   _button">投單程式格式!</button>
+            </div>
+            <div class="col-4" id="div3">
+                <div class="form-group">
+                    <label for="result" class="col-form-label">Result</label>
+                    <textarea class="form-control" name="result" rows="20" id="result"></textarea>
                 </div>
+                <button type="submit" class="btn btn-primary" onclick="clickcopy()">複製</button>
+                <button type="submit" class="btn btn-primary" onclick="clickdownload()">下載</button>
             </div>
         </div>
     </div>
+</div>
+
+<script src="{{url_for('.static', filename='format.js')}}"></script>
 {% endblock %}
