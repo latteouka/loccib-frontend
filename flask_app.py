@@ -352,6 +352,11 @@ def insaddnew():
     return f'add new insrecord'
 
 
+# 投單用
+@app.route("/format", methods=['GET'])
+def format():    
+    return render_template('format.html')
+
 
 if __name__ == 'main':
     app.run() #啟動伺服器
