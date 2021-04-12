@@ -1,0 +1,38 @@
+
+
+{% extends 'base.html' %}
+{% block title %}Records{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+        <div class="container">
+            <h3>datetime formatter</h3>
+            <h4>時間格式：2021-03-02 08:07:16 -> 202103020807<br>　　　　　2021-03-02 08:07 　   -> 202103020807</h4>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-4" id="div1">
+                    <div class="form-group">
+                        <label for="time" class="col-form-label">Time</label>
+                        <textarea class="form-control" name="input1" rows="20" placeholder="time" id="time"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary button" onclick="time_format()" id="format">格式化!</button>
+                </div>
+                <div class="col-4" id="div2">
+                    <div class="form-group">
+                        <label for="ip" class="col-form-label">IP Address</label>
+                        <textarea class="form-control" name="input2" rows="20" id="ip"></textarea>
+                        <button type="submit" class="btn btn-primary button" onclick="getresult()" id="result   _button">投單格式!</button>
+                    </div>
+                </div>
+                <div class="col-4" id="div3">
+                    <div class="form-group">
+                        <label for="result" class="col-form-label">Result (IP需查詢Whois請另用程式跑)</label>
+                        <textarea class="form-control" name="result" rows="20" id="result"></textarea>
+                        <button type="submit" class="btn btn-primary button" onclick="clickcopy()">複製</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
