@@ -1,0 +1,37 @@
+
+
+{% extends 'base.html' %}
+{% block title %}Records{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+        <div class="container">
+            <h3>電話投單CSV</h3>
+            <p>一個電話一行 格式為：0900123456或市話的02-26223333<br>
+            市話判斷是用中間的「-」所以行動電話請注意不要打錯了<br>
+            時間自動抓取昨日與七日前</p>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-6" id="div1">
+                    <div class="form-group">
+                        <label for="time" class="col-form-label">Phone Numbers:</label>
+                        <textarea class="form-control" name="input1" rows="20" id="number"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary button" onclick="getresult()" id="number">Run!</button>
+                </div>
+
+                <div class="col-6" id="div3">
+                    <div class="form-group">
+                        <label for="result" class="col-form-label">Result</label>
+                        <textarea class="form-control" name="result" rows="20" id="result"></textarea>
+                        <button type="submit" class="btn btn-primary button" onclick="clickcopy()">複製</button>
+                        <button type="submit" class="btn btn-info button" onclick="clickdownload()">下載</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="{{url_for('.static', filename='number.js')}}"></script>
+{% endblock %}
