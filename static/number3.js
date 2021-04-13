@@ -1,5 +1,5 @@
 number = "0922334455\n0912456789\n02-26223333";
-document.getElementById("number").value = time;
+document.getElementById("number").value = number;
 
 function clickcopy() {
   /* Get the text field */
