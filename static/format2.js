@@ -87,38 +87,16 @@ function getresult() {
 
 function clickdownload() {
   
-  var time = document.getElementById("time").value;
-  var lines = time.split('\n');
+  text = document.getElementById("result").value
 
-  var ip = document.getElementById("ip").value;
-  var ips = ip.split('\n');
+  var link = document.createElement('a');
+  link.href = 'data:text/plain;charset=UTF-8,' + encodeURIComponent(text);
+  
+  //set default action on link to force download, and set default filename:
+  link.download = 'ips.txt';     
 
-  results = []
-
-  if(lines.length !== ips.length) {
-    alert("時間跟IP數量不相等！");
-    return;
-  }
-
-  var i;
-  for (i = 0; i < lines.length; i++) { 
-    results.push([ips[i],lines[i]])
-  }
-
-  let csvContent = "data:text/csv;charset=utf-8,";
-
-  results.forEach(function(rowArray) {
-    let result = rowArray.join(",");
-    csvContent += result + "\r\n";
-  });
-
-
-  var encodedUri = encodeURI(csvContent);
-  var link = document.createElement("a");
-  link.setAttribute("href", encodedUri);
-  link.setAttribute("download", "my_data.csv");
-  document.body.appendChild(link); // Required for FF
-
+  //now put the link somewhere in the html document:
+  document.body.appendChild(link);
   link.click();
 }
 
