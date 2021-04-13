@@ -357,6 +357,11 @@ def insaddnew():
 def format():    
     return render_template('format.html')
 
+# 投單用
+@app.route("/number", methods=['GET'])
+def number():    
+    return render_template('number.html')
+
 
 if __name__ == 'main':
     app.run() #啟動伺服器
