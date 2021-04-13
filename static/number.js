@@ -1,8 +1,3 @@
-time = "0972026721\n0957648376\n02-26223333";
-
-
-document.getElementById("number").value = time;
-
 
 
 function clickcopy() {
