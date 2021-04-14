@@ -59,6 +59,8 @@ users = {'chun': {'password': 'L26311615'},
         'loveve': {'password': 'Aa123123'},
         'loveve2': {'password': 'Aa123123'},
         'pa781022': {'password': 'Aa123456'},
+        'lawbingbing': {'password': 'Aa12345678'},
+        'p689688': {'password': 'Aa12345678'},
 }
 
 
