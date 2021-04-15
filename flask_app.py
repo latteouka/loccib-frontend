@@ -214,7 +214,7 @@ def login():
 def logout():
     使用者 = current_user.get_id()
     logout_user()
-    flash(f'{使用者}！掰掰！')
+    #flash(f'{使用者}！掰掰！')
     return render_template('login.html')
 
 #
