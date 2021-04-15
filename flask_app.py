@@ -63,14 +63,6 @@ users = {'chun': {'password': 'L26311615'},
         'p689688': {'password': 'Aa12345678'},
 }
 
-
-
-
-
-
-
-
-
 @app.route("/getname", methods=['GET'])
 def getname():
     name = request.args.get('name')
@@ -126,7 +118,7 @@ def show():
                              cursorclass=pymysql.cursors.DictCursor)
 
     with connection.cursor() as cursor:
-        sql = "SELECT * FROM `records` WHERE `user`=%s ORDER BY `id` DESC LIMIT 100"
+        sql = "SELECT * FROM `records` WHERE `user`=%s ORDER BY `id` DESC LIMIT 50"
         cursor.execute(sql, (user,))
         results = cursor.fetchall()
         #print(result)
@@ -150,7 +142,7 @@ def target():
                              cursorclass=pymysql.cursors.DictCursor)
 
     with connection.cursor() as cursor:
-        sql = "SELECT * FROM `records` WHERE `user`=%s AND `header`=%s ORDER BY `id` DESC"
+        sql = "SELECT * FROM `records` WHERE `user`=%s AND `header`=%s ORDER BY `id` DESC  LIMIT 300"
         cursor.execute(sql, (user,target))
         results = cursor.fetchall()
         
