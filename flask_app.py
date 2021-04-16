@@ -30,6 +30,63 @@ login_manager.session_protection = "strong"
 login_manager.login_view = 'login'
 login_manager.login_message = '請登入！！'
 
+
+def which_isp(ip):
+
+    is_twm = False
+
+    if '49.214.' in ip:
+        is_twm = True
+    elif '49.215.' in ip:
+        is_twm = True
+    elif '49.216.' in ip:
+        is_twm = True
+    elif '49.217.' in ip:
+        is_twm = True
+    elif '49.218.' in ip:
+        is_twm = True
+    elif '49.219.' in ip:
+        is_twm = True
+    elif '175.96.' in ip:
+        is_twm = True
+    else:
+        is_twm = False
+    
+    #print(ip)
+    results = IPWhois(ip).lookup_rdap(asn_methods=['dns', 'whois', 'http'])
+
+    print(results['network']['name'])
+    
+
+    if is_twm:
+        return '台灣大哥大', '使用者資料'
+    elif results['network']['name'] == 'HINET-NET':
+        return '中華電信網路', '使用者資料'
+    elif results['network']['name'] == 'EMOME-NET':
+        return '中華電信行動', '使用者資料'
+    elif results['network']['name'] == 'taiwanmobile-net':
+        return '台灣大哥大', '使用者資料'
+    elif results['network']['name'] == 'TAIWANMOBILE-NET':
+        return '台灣大哥大', '使用者資料'
+    elif results['network']['name'] == 'FETNET-NET':
+        return '遠傳電信股份有限公司', '使用者資料'
+    elif results['network']['name'] == 'FEG-MPLS-NETWORK-NET':
+        return '遠傳電信股份有限公司', '使用者資料'
+    elif results['network']['name'] == 'VIBO-NET':
+        return '台灣之星', '使用者資料'
+    elif results['network']['name'] == 'VEETIME-TW':
+        return '大台中數位有線電視股份有限公司', '歷史查詢'
+    elif results['network']['name'] == 'APT':
+        return '亞太電信', '歷史查詢'
+    elif results['network']['name'] == 'APOL-NET':
+        return '亞太電信', '歷史查詢'
+    elif results['network']['name'] == 'TFN-NET':
+        return '台灣固網', '歷史查詢'
+    elif results['network']['name'] == 'NCICNET-NET':
+        return '新世紀資通請發文', '使用者資料'
+    else:
+        return '不能投單的業者', '使用者資料'
+
 class User(UserMixin):
     pass
 
@@ -366,6 +423,16 @@ def format():
 @app.route("/number", methods=['GET'])
 def number():    
     return render_template('number.html')
+
+
+
+@app.route("/whois", methods=['POST'])
+def whois():
+    ips = request.form.get('result')
+
+    print(ips)
+    si = io.StringIO()
+    cw = csv.writer(si)
 
 
 if __name__ == 'main':
