@@ -498,11 +498,11 @@ def whois():
 
         if ports[i] != '0':
             ip_port = ip + ":" + ports[i]
-            writer.writerow(["IP", isp, ip_port, start_time_format, end_time_format, lookup])
+            cw.writerow(["IP", isp, ip_port, start_time_format, end_time_format, lookup])
             print(["IP", isp, ip_port, start_time_format, end_time_format, lookup])
             i = i + 1
         else:
-            writer.writerow(["IP", isp, ip, start_time_format, end_time_format, lookup])
+            cw.writerow(["IP", isp, ip, start_time_format, end_time_format, lookup])
             print(["IP", isp, ip, start_time_format, end_time_format, lookup])
             i = i + 1
 
