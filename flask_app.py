@@ -433,15 +433,67 @@ def number():
 def whois():
     ips_form = request.form.get('result')
 
-    ips = ips_form.split("\n\r")
+    rows = ips_form.split("\n\r")
 
-    print(ips)
-    si = io.StringIO()
-    cw = csv.writer(si)
+    ips_array = []
+
+    for row in rows:
+        ips_array.apend(row.split(","))
+
+    print(ips_array)
 
     ips = []
     times = []
     ports = []
+
+    for row in rows:
+        l = len(row)
+
+        if l == 3:
+            #彙整IP
+            ips.append(row[0])
+            print(row[0])
+            #彙整時間
+            time = datetime.strptime(row[1], "%Y%m%d%H%M")
+            times.append(time)
+            #彙整port
+            ports.append(row[2])
+            
+        elif l == 2:
+            #彙整IP
+            ips.append(row[0])
+            print(row[0])
+            #彙整時間
+            time = datetime.strptime(row[1], "%Y%m%d%H%M")
+            times.append(time)
+            #彙整port
+            ports.append('0')
+
+        else:
+            print("格式有誤")
+
+    
+
+    si = io.StringIO()
+    cw = csv.writer(si)
+
+
+
+
+    response = make_response(si.getvalue())
+
+    dt1 = datetime.utcnow().replace(tzinfo=timezone.utc)
+    dt2 = dt1.astimezone(timezone(timedelta(hours=8))) # 轉換時區 -> 東八區
+
+    timenow = dt2.strftime("%Y-%m-%d %H:%M:%S")
+
+    disposition = "attachment; filename=output-" + user + "-" + target + "-" + timenow + ".csv"
+
+    response.headers['Content-Disposition'] = disposition.encode('utf-8')
+    response.headers["Content-type"] = "text/csv"
+    return response
+
+    
 
 
 if __name__ == 'main':
