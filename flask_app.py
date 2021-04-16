@@ -72,11 +72,6 @@ users = {'chun': {'password': '70608f1675a12b81a09aa5f797b5b5d308b5405d'},
         'p689688': {'password': 'a57ae0fe47084bc8a05f69f3f8083896f8b437b0'},
 }
 
-@app.route("/getname", methods=['GET'])
-def getname():
-    name = request.args.get('name')
-    return render_template('get.html',**locals())
-
 
 @app.route("/addnew", methods=['GET'])
 def addnew():
@@ -116,8 +111,6 @@ def addnew():
 def show():
 
     user = current_user.get_id()
-
-    #user = request.args.get('user')
 
     connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
                              user=os.environ.get('CLEARDB_DATABASE_USER'),
@@ -205,6 +198,10 @@ def export():
 #登入頁面
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == 'GET':
+        return render_template("login.html")
+
+    使用者 = request.form['user_id']
 
     #hash 
     s = hashlib.sha1()
@@ -212,11 +209,6 @@ def login():
     s.update(request_password)
     request_password_h = s.hexdigest()
 
-
-    if request.method == 'GET':
-        return render_template("login.html")
-    
-    使用者 = request.form['user_id']
     #if (使用者 in users) and (request.form['password'] == users[使用者]['password']):
     if (使用者 in users) and (request_password_h == users[使用者]['password']):
         user = User()
