@@ -483,7 +483,7 @@ def whois():
     cw = csv.writer(si)
 
     i = 0
-    
+    import datetime
     for ip in ips:
 
         isp, lookup = which_isp(ip)
