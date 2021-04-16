@@ -460,7 +460,7 @@ def whois():
             print(row[0])
             #彙整時間
             time_format = datetime.datetime.strptime(row[1], "%Y%m%d%H%M")
-            times.append(time)
+            times.append(time_format)
             #彙整port
             ports.append(row[2])
             
@@ -470,7 +470,7 @@ def whois():
             print(row[0])
             #彙整時間
             time_format = datetime.datetime.strptime(row[1], "%Y%m%d%H%M")
-            times.append(time)
+            times.append(time_format)
             #彙整port
             ports.append('0')
 
