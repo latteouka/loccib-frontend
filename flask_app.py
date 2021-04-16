@@ -482,6 +482,28 @@ def whois():
     si = io.StringIO()
     cw = csv.writer(si)
 
+    i = 0
+    
+    for ip in ips:
+
+        isp, lookup = which_isp(ip)
+
+        start_time = times[i] - datetime.timedelta(minutes=10)
+        start_time_format = start_time.strftime('%Y%m%d%H%M%S')
+        end_time = times[i] + datetime.timedelta(minutes=10)
+        end_time_format = end_time.strftime('%Y%m%d%H%M%S')
+
+
+        if ports[i] != '0':
+            ip_port = ip + ":" + ports[i]
+            writer.writerow(["IP", isp, ip_port, start_time_format, end_time_format, lookup])
+            print(["IP", isp, ip_port, start_time_format, end_time_format, lookup])
+            i = i + 1
+        else:
+            writer.writerow(["IP", isp, ip, start_time_format, end_time_format, lookup])
+            print(["IP", isp, ip, start_time_format, end_time_format, lookup])
+            i = i + 1
+
 
 
 
@@ -492,7 +514,7 @@ def whois():
 
     timenow = dt2.strftime("%Y-%m-%d %H:%M:%S")
 
-    disposition = "attachment; filename=output-" + user + "-" + target + "-" + timenow + ".csv"
+    disposition = "attachment; filename=output-" + timenow + ".csv"
 
     response.headers['Content-Disposition'] = disposition.encode('utf-8')
     response.headers["Content-type"] = "text/csv"
