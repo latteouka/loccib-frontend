@@ -438,7 +438,7 @@ def whois():
     ips_array = []
 
     for row in rows:
-        ips_array.apend(row.split(","))
+        ips_array.append(row.split(","))
 
     print(ips_array)
 
@@ -446,7 +446,7 @@ def whois():
     times = []
     ports = []
 
-    for row in rows:
+    for row in ips_array:
         l = len(row)
 
         if l == 3:
@@ -472,7 +472,9 @@ def whois():
         else:
             print("格式有誤")
 
-    
+    pprint(ips)
+    pprint(times)
+    pprint(ports)
 
     si = io.StringIO()
     cw = csv.writer(si)
