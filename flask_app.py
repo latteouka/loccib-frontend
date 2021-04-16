@@ -433,7 +433,9 @@ def number():
 def whois():
     ips_form = request.form.get('result')
 
-    rows = ips_form.split("\n\r")
+    rows = ips_form.split("\r\n")
+
+    print(rows)
 
     ips_array = []
 
