@@ -21,6 +21,10 @@ function time_format() {
 
   var lines = time.split('\n');
 
+  if (lines[0].length === 12 ) {
+    return;
+  }
+
   var i;
   for (i = 0; i < lines.length; i++) { 
   	lines[i] = lines[i].substring(0, 4)+lines[i].substring(5, 7)+lines[i].substring(8, 10)+lines[i].substring(11, 13)+lines[i].substring(14, 16)
