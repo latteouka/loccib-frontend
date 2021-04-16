@@ -491,9 +491,9 @@ def whois():
         isp, lookup = which_isp(ip)
 
         start_time = times[i] - datetime.timedelta(minutes=10)
-        start_time_format = start_time.strftime('%Y%m%d%H%M%S')
+        start_time_format = datetime.start_time.strftime('%Y%m%d%H%M%S')
         end_time = times[i] + datetime.timedelta(minutes=10)
-        end_time_format = end_time.strftime('%Y%m%d%H%M%S')
+        end_time_format = datetime.end_time.strftime('%Y%m%d%H%M%S')
 
 
         if ports[i] != '0':
