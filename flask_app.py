@@ -20,6 +20,9 @@ from datetime import datetime,timezone,timedelta
 
 import hashlib
 
+import re
+from ipwhois import IPWhois
+
 
 app = Flask(__name__)
 app.secret_key = '268ffece5b07530333f1695850c5febd'
@@ -428,7 +431,9 @@ def number():
 
 @app.route("/whois", methods=['POST'])
 def whois():
-    ips = request.form.get('result')
+    ips_form = request.form.get('result')
+
+    ips = ips_form.split("\n")
 
     print(ips)
     si = io.StringIO()
