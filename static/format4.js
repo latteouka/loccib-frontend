@@ -99,10 +99,10 @@ function getresultport() {
     alert("時間跟IP數量不相等！");
     return;
   } else if (lines.length !== ports.length) {
-    alert("時間跟Port數量不相等！");
+    alert("資料的數量不相等！");
     return;
   } else if (ips.length !== ports.length) {
-    alert("IP跟Port數量不相等！");
+    alert("資料的數量不相等！");
     return;
   }
 
@@ -124,7 +124,7 @@ function getresultport() {
 
   document.getElementById("result").value = result_string;
 
-  document.getElementById("result_button").onclick = null;
+  document.getElementById("port_button").onclick = null;
   
 }
 
@@ -133,15 +133,18 @@ function clickdownload() {
   
   text = document.getElementById("result").value
 
-  var link = document.createElement('a');
-  link.href = 'data:text/plain;charset=UTF-8,' + encodeURIComponent(text);
-  
-  //set default action on link to force download, and set default filename:
-  link.download = 'ips.txt';     
+  if (text) {
+    var link = document.createElement('a');
+    link.href = 'data:text/plain;charset=UTF-8,' + encodeURIComponent(text);
+    
+    //set default action on link to force download, and set default filename:
+    link.download = 'ips.txt';     
 
-  //now put the link somewhere in the html document:
-  document.body.appendChild(link);
-  link.click();
+    //now put the link somewhere in the html document:
+    document.body.appendChild(link);
+    link.click();
+  }
+    
 }
 
 
