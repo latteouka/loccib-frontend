@@ -8,9 +8,7 @@
 {% block content %}
 <div class="container">
     <div class="container">
-        <h3>datetime formatter IP投單程式用</h3>
-        <h4>時間格式：2021-03-02 08:07:16 -> 202103020807<br>　　　　　2021-03-02 08:07 　   -> 202103020807</h4>
-        {% with messages = get_flashed_messages() %}
+                {% with messages = get_flashed_messages() %}
       {% if messages %}
       <div class="alert alert-danger" role="alert" style="margin:0px 30px 0px 30px">
         
@@ -21,6 +19,9 @@
       </div>
       {% endif %}
       {% endwith %}
+        <h3>datetime formatter IP投單程式用</h3>
+        <h4>時間格式：2021-03-02 08:07:16 -> 202103020807<br>　　　　　2021-03-02 08:07 　   -> 202103020807</h4>
+
         <hr>
         <div class="row justify-content-center align-items-center">
             <div class="col-3" id="div1">
@@ -51,7 +52,6 @@
                         <textarea class="form-control" name="result" rows="20" id="result"></textarea>                       
                     </div>
                     <button type="submit" class="btn btn-primary" onclick="clickcopy()">複製</button>
-                    <button type="submit" class="btn btn-info" onclick="clickdownload()">下載</button>
                     <button type="submit" class="btn btn-success" value="Submit">投單</button>
                 </form>
             </div>
