@@ -1,4 +1,4 @@
-
+document.getElementById("result").value = "223.137.249.187,202012101004,1234"
 
 function clickcopy() {
   /* Get the text field */
