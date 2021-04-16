@@ -53,7 +53,7 @@ def request_loader(request):
 
     #hash
     s = hashlib.sha1()
-    request_password = request.form['password']
+    request_password = request.form['password'].encode('utf-8')
     s.update(request_password)
     request_password_h = s.hexdigest()
 
@@ -208,7 +208,7 @@ def login():
 
     #hash 
     s = hashlib.sha1()
-    request_password = request.form['password']
+    request_password = request.form['password'].encode('utf-8')
     s.update(request_password)
     request_password_h = s.hexdigest()
 
