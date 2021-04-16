@@ -3,4 +3,3 @@ bootstrap-flask
 gunicorn
 PyMySQL
 Flask-Login
-Werkzeug
