@@ -70,6 +70,7 @@ users = {'chun': {'password': '70608f1675a12b81a09aa5f797b5b5d308b5405d'},
         'pa781022': {'password': '3a960464d36c1b8bad183ed57ee79c0e39953cce'},
         'lawbingbing': {'password': 'a57ae0fe47084bc8a05f69f3f8083896f8b437b0'},
         'p689688': {'password': 'a57ae0fe47084bc8a05f69f3f8083896f8b437b0'},
+        'fishcan': {'password': 'c82628fa6a4e63c9b9dcaf6887d8c5e29151d6dc'},
 }
 
 
