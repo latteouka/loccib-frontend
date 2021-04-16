@@ -18,6 +18,8 @@ import io
 
 from datetime import datetime,timezone,timedelta
 
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 app = Flask(__name__)
 app.secret_key = '268ffece5b07530333f1695850c5febd'
