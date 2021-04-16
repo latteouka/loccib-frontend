@@ -511,7 +511,7 @@ def whois():
 
     response = make_response(si.getvalue())
 
-    dt1 = datetime.utcnow().replace(tzinfo=timezone.utc)
+    dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
     dt2 = dt1.astimezone(timezone(timedelta(hours=8))) # 轉換時區 -> 東八區
 
     timenow = dt2.strftime("%Y-%m-%d %H:%M:%S")
