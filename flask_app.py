@@ -433,11 +433,15 @@ def number():
 def whois():
     ips_form = request.form.get('result')
 
-    ips = ips_form.split("\n")
+    ips = ips_form.split("\n\r")
 
     print(ips)
     si = io.StringIO()
     cw = csv.writer(si)
+
+    ips = []
+    times = []
+    ports = []
 
 
 if __name__ == 'main':
