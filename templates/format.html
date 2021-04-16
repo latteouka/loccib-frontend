@@ -36,12 +36,15 @@
                 <button type="submit" class="btn btn-danger" onclick="getresultport()" id="port_button">有Port</button>
             </div>
             <div class="col-3" id="div3">
-                <div class="form-group">
-                    <label for="result" class="col-form-label">Result</label>
-                    <textarea class="form-control" name="result" rows="20" id="result"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" onclick="clickcopy()">複製</button>
-                <button type="submit" class="btn btn-info" onclick="clickdownload()">下載</button>
+                <form action="/whois" method="post">
+                    <div class="form-group">
+                        <label for="result" class="col-form-label">Result</label>
+                        <textarea class="form-control" name="result" rows="20" id="result"></textarea>                       
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="clickcopy()">複製</button>
+                    <button type="submit" class="btn btn-info" onclick="clickdownload()">下載</button>
+                    <button type="submit" class="btn btn-info" value="Submit">投單</button>
+                </form>
             </div>
         </div>
     </div>
