@@ -51,13 +51,20 @@ def request_loader(request):
     user = User()
     user.id = 使用者
 
+    #hash
+    s = hashlib.sha1()
+    request_password = request.form['password']
+    s.update(request_password)
+    request_password_h = s.hexdigest()
+
     # DO NOT ever store passwords in plaintext and always compare password
     # hashes using constant-time comparison!
-    user.is_authenticated = request.form['password'] == users[使用者]['password']
+    #user.is_authenticated = request.form['password'] == users[使用者]['password']
+    user.is_authenticated = request_password_h == users[使用者]['password']
 
     return user
 
-users = {'chun': {'password': 'L26311615'},
+users = {'chun': {'password': '70608f1675a12b81a09aa5f797b5b5d308b5405d'},
         'loveve': {'password': 'Aa123123'},
         'loveve2': {'password': 'Aa123123'},
         'pa781022': {'password': 'Aa123456'},
@@ -198,11 +205,20 @@ def export():
 #登入頁面
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+
+    #hash 
+    s = hashlib.sha1()
+    request_password = request.form['password']
+    s.update(request_password)
+    request_password_h = s.hexdigest()
+
+
     if request.method == 'GET':
         return render_template("login.html")
     
     使用者 = request.form['user_id']
-    if (使用者 in users) and (request.form['password'] == users[使用者]['password']):
+    #if (使用者 in users) and (request.form['password'] == users[使用者]['password']):
+    if (使用者 in users) and (request_password_h == users[使用者]['password']):
         user = User()
         user.id = 使用者
         login_user(user)
