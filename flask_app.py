@@ -476,6 +476,8 @@ def whois():
 
         else:
             print("格式有誤")
+            flash('格式有誤')
+            return redirect(url_for('format'))
 
     pprint(ips)
     pprint(times)
