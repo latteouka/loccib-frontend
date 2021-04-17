@@ -56,7 +56,7 @@
 
   .parent .number_main_part { 
     grid-template-columns: 1fr;
-  
+    grid-gap: 3em;
 }
 
 }
