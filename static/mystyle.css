@@ -93,6 +93,7 @@
 
 body {
   height: 100vh;
+  box-sizing: border-box;
 }
 
 a {
@@ -374,5 +375,25 @@ input[type=password]:placeholder {
 #icon {
   width:60%;
 }
+
+
+/* format page */
+
+.parent {
+  display: grid;
+}
+
+.top_part {
+  
+}
+
+.top_part table {
+  width: 10%;
+  background-color :#fff;
+}
+.top_part table tr:nth-child(odd) {
+  background-color :#eee;
+}
+
 
 

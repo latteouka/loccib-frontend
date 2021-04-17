@@ -6,60 +6,73 @@
 
 
 {% block content %}
-<div class="container">
-    <div class="container">
-                {% with messages = get_flashed_messages() %}
-      {% if messages %}
-      <div class="alert alert-danger" role="alert" style="margin:20px 30px 0px 30px">
-        
-            {% for message in messages %}
-                {{ message }}
-            {% endfor %}
-        
-      </div>
-      {% endif %}
-      {% endwith %}
-        <h3>IP投單格式</h3>
-        <h4>提供時間格式轉換：<br>
-            2021-03-02 08:07:16 -> 202103020807<br>
-            2021-03-02 08:07 　 -> 202103020807</h4>
 
-        <hr>
-        <div class="row justify-content-center align-items-center">
-            <div class="col-3" id="div1">
+<div class="parent">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="alert_part">
+            <div class="alert alert-danger" role="alert" style="margin:20px 30px 0px 30px">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            /div>
+        </div>
+    {% endif %}
+    {% endwith %}
+
+
+    <div class="top_part">
+        <h3>IP投單格式</h3>
+        <h4>提供時間格式轉換：</h4>
+        <table class="top_part_table">
+            <tr>
+                <td>2021-03-02 08:07:16</td>
+                <td>➞</td>
+                <td>202103020807</td>
+            </tr>
+            <tr>
+                <td>2021-03-02 08:07</td>
+                <td>➞</td>
+                <td>202103020807</td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="main_part">
+        <div class="main_col" id="div1">
+            <div class="form-group">
+                <label for="time" class="col-form-label">Step 1: 把時間貼進來格式化</label>
+                <textarea class="form-control" name="input1" rows="20" id="time" placeholder="如果已格式化（ex: 202103020807）就直接貼進來下一步"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="time_format()" id="format">格式化!</button>
+        </div>
+        <div class="main_col" id="div2">
+            <div class="form-group">
+                <label for="ip" class="col-form-label">Step 2: 把IP貼進來</label>
+                <textarea class="form-control" name="input2" rows="20" id="ip"></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger" onclick="getresult()" id="result_button">沒有Port</button>
+        </div>
+        <div class="main_col" id="div2">
+            <div class="form-group">
+                <label for="ip" class="col-form-label">Step 3: 有Port嗎？</label>
+                <textarea class="form-control" name="input3" rows="20" id="port" placeholder="沒有就空白即可"></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger" onclick="getresultport()" id="port_button">有Port</button>
+        </div>
+        <div class="main_col" id="div3">
+            <form action="/whois" method="post">
                 <div class="form-group">
-                    <label for="time" class="col-form-label">Step 1: 把時間貼進來格式化</label>
-                    <textarea class="form-control" name="input1" rows="20" id="time" placeholder="如果已格式化（ex: 202103020807）就直接貼進來下一步"></textarea>
+                    <label for="result" class="col-form-label">Result</label>
+                    <textarea class="form-control" name="result" rows="20" id="result"></textarea>                       
                 </div>
-                <button type="submit" class="btn btn-primary" onclick="time_format()" id="format">格式化!</button>
-            </div>
-            <div class="col-3" id="div2">
-                <div class="form-group">
-                    <label for="ip" class="col-form-label">Step 2: 把IP貼進來</label>
-                    <textarea class="form-control" name="input2" rows="20" id="ip"></textarea>
-                </div>
-                <button type="submit" class="btn btn-danger" onclick="getresult()" id="result_button">沒有Port</button>
-            </div>
-            <div class="col-3" id="div2">
-                <div class="form-group">
-                    <label for="ip" class="col-form-label">Step 3: 有Port嗎？</label>
-                    <textarea class="form-control" name="input3" rows="20" id="port" placeholder="沒有就空白即可"></textarea>
-                </div>
-                <button type="submit" class="btn btn-danger" onclick="getresultport()" id="port_button">有Port</button>
-            </div>
-            <div class="col-3" id="div3">
-                <form action="/whois" method="post">
-                    <div class="form-group">
-                        <label for="result" class="col-form-label">Result</label>
-                        <textarea class="form-control" name="result" rows="20" id="result"></textarea>                       
-                    </div>
-                    <button type="submit" class="btn btn-primary" onclick="clickcopy()">複製</button>
-                    <button type="submit" class="btn btn-success" value="Submit">投單</button>
-                </form>
-            </div>
+                <button type="submit" class="btn btn-primary" onclick="clickcopy()">複製</button>
+                <button type="submit" class="btn btn-success" value="Submit">投單</button>
+            </form>
         </div>
     </div>
 </div>
+
 
 <script src="{{url_for('.static', filename='format6.js')}}"></script>
 {% endblock %}

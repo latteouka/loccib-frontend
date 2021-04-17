@@ -30,6 +30,8 @@ from pprint import pprint
 app = Flask(__name__)
 app.secret_key = '268ffece5b07530333f1695850c5febd'
 
+app.debug = True
+
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.session_protection = "strong"
