@@ -47,6 +47,11 @@
 	*/
 	#no-more-tables td:before { content: attr(data-title); }
 
+  .parent_number {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
   .parent .main_part { 
     grid-template-columns: none; 
     grid-template-columns: repeat(2, 1fr); 
@@ -397,6 +402,12 @@ input[type=password]:placeholder {
 /* format page */
 
 .parent {
+  display: grid;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.parent_number {
   display: grid;
   padding-left: 5%;
   padding-right: 5%;
