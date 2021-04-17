@@ -53,6 +53,11 @@
     grid-template-columns: repeat(2, 1fr); 
   }
 
+  .parent .combine_main_part {
+  grid-template-columns: 1fr;
+  }
+  
+
   .parent .top_part { background-color: #fff; }
 
   .parent_number .number_main_part { 
