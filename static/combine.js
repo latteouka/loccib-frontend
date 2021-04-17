@@ -117,3 +117,10 @@ function getresult_4() {
 
   document.getElementById("result").value = result_string;
 }
+
+
+function copytoinput1() {
+  
+  document.getElementById("input1").value = document.getElementById("result").value
+
+}
