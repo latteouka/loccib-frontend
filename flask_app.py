@@ -234,14 +234,14 @@ def manage():
                              cursorclass=pymysql.cursors.DictCursor)
 
     with connection.cursor() as cursor:
-        sql = "SELECT `header`, COUNT(`header`) FROM `records` WHERE `user`=%s GROUP BY `header`"
+        sql = "SELECT `header`, COUNT(`header`), MAX(`time`) FROM `records` WHERE `user`=%s GROUP BY `header` ORDER BY `id` DESC"
         cursor.execute(sql, (user))
         results = cursor.fetchall()
         print(results)
         cursor.close()
 
     
-    return f'check log'
+    return render_template('manage.html',**locals())
 
 #輸出csv
 @app.route('/export', methods=['GET'])
