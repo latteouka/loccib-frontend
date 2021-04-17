@@ -80,7 +80,8 @@ function clickdownload() {
 
   let csvContent = "data:text/csv;charset=utf-8,";
 
-  results.forEach(function(rowArray) {
+
+  results.forEach(function(result) {
     
     csvContent += result + "\r\n";
   });
