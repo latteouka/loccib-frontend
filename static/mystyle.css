@@ -46,6 +46,14 @@
 	Label the data
 	*/
 	#no-more-tables td:before { content: attr(data-title); }
+
+  .parent .main_part { 
+    grid-template-columns: none; 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .parent .top_part { background-color: #fff; }
+
 }
 
 
@@ -381,11 +389,10 @@ input[type=password]:placeholder {
 
 .parent {
   display: grid;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
-.top_part {
-  
-}
 
 .top_part table {
   width: 10%;
@@ -393,6 +400,44 @@ input[type=password]:placeholder {
 }
 .top_part table tr:nth-child(odd) {
   background-color :#eee;
+}
+
+
+
+.main_part {
+  display: grid;
+  margin-top: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+  
+}
+
+
+.main_part button {
+  margin-top: .5em;
+}
+
+.main_col {
+  display: grid;
+  grid-template-rows: auto;
+  /*justify-items: center;*/
+}
+
+.main_row span {
+  margin: 0px;
+  padding: 0px;
+  color: blue;
+  font-weight: normal;
+  text-decoration:underline;
+  justify-self: center;
+  align-self: center;
+}
+
+
+.main_row_title,
+.main_row_button {
+  font-weight: bold;
+  justify-self: center;
 }
 
 
