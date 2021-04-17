@@ -433,9 +433,9 @@ def number():
     return render_template('number.html')
 
 # 文字組合
-@app.route("/combine", methods=['GET'])
-def combine():    
-    return render_template('combine.html')
+@app.route("/oneline", methods=['GET'])
+def oneline():    
+    return render_template('oneline.html')
 
 
 
