@@ -53,8 +53,8 @@
     grid-template-columns: repeat(2, 1fr); 
   }
 
-  .parent .combine_main_part {
-  grid-template-columns: 1fr;
+  .parent_combine .combine_main_part {
+    grid-template-columns: 1fr;
   }
   
 
