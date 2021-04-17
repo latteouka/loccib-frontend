@@ -47,10 +47,6 @@
 	*/
 	#no-more-tables td:before { content: attr(data-title); }
 
-  .parent_number {
-    padding-left: 10%;
-    padding-right: 10%;
-  }
 
   .parent .main_part { 
     grid-template-columns: none; 
@@ -61,7 +57,7 @@
 
   .parent_number .number_main_part { 
     grid-template-columns: 1fr;
-    grid-gap: 3em;
+    grid-gap: 1em;
 }
 
 }
@@ -409,8 +405,8 @@ input[type=password]:placeholder {
 
 .parent_number {
   display: grid;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 
