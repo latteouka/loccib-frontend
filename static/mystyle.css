@@ -431,6 +431,7 @@ input[type=password]:placeholder {
 
 .main_part button {
   margin-top: .5em;
+  padding: 3px;
 }
 
 .main_col {
