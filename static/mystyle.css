@@ -402,13 +402,9 @@ input[type=password]:placeholder {
 
 /* format page */
 
-.parent {
-  display: grid;
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
-.parent_number {
+.parent,
+.parent_number,
+.parent_combine {
   display: grid;
   padding-left: 10%;
   padding-right: 10%;
