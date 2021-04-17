@@ -54,6 +54,11 @@
 
   .parent .top_part { background-color: #fff; }
 
+  .parent .number_main_part { 
+    grid-template-columns: 1fr;
+  
+}
+
 }
 
 
@@ -119,6 +124,10 @@ h2 {
   display:inline-block;
   margin: 40px 8px 10px 8px; 
   color: #cccccc;
+}
+
+footer {
+  height:3%;
 }
 
 
@@ -402,8 +411,6 @@ input[type=password]:placeholder {
   background-color :#eee;
 }
 
-
-
 .main_part {
   display: grid;
   margin-top: 30px;
@@ -411,7 +418,6 @@ input[type=password]:placeholder {
   grid-gap: 1em;
   
 }
-
 
 .main_part button {
   margin-top: .5em;
@@ -438,7 +444,18 @@ input[type=password]:placeholder {
 .main_row_button {
   font-weight: bold;
   justify-self: center;
+  margin-top: .5em;
 }
+
+
+.number_main_part {
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1em;
+  
+}
+
 
 
 
