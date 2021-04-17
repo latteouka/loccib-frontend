@@ -261,7 +261,7 @@ def recorddele():
                              cursorclass=pymysql.cursors.DictCursor)
 
     with connection.cursor() as cursor:
-        sql = "DELETE FROM records WHERE USER =%s AND HEADER=%s"
+        sql = "DELETE FROM `records` WHERE `user` =%s AND `header`=%s"
         cursor.execute(sql, (user, header))
         cursor.close()
 
