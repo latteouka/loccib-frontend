@@ -243,6 +243,18 @@ def manage():
     
     return render_template('manage.html',**locals())
 
+
+@app.route("/recorddele", methods=['GET'])
+@login_required
+def recorddele():
+    header = request.args.get('header')
+    user = current_user.get_id()
+
+    print(header)
+
+    
+    return redirect(url_for('manage'))
+
 #輸出csv
 @app.route('/export', methods=['GET'])
 def export():
