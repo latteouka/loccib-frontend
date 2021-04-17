@@ -23,11 +23,11 @@
 		    <tbody>
 		    	{% for result in results %}
 			        <tr>
-			            <td data-title="目標" class="numeric" name="targetk"><b>{{result["target"]}}</a></b></td>
-			            <td data-title="時間" class="numeric" name="targeth">{{result["time"]}}</td>
-			            <td data-title="給目標網頁" class="numeric" name="targetn">{{result["dsturl"]}}</td>
-			            <td data-title="傳的網址" class="numeric" name="targetn">{{result["token"]}}</td>
-			            <td data-title="備註" class="numeric" name="targetn">{{result["description"]}}</td>
+			            <td data-title="目標" class="numeric" name="targetk"><b>{{infos["target"]}}</a></b></td>
+			            <td data-title="時間" class="numeric" name="targeth">{{infos["time"]}}</td>
+			            <td data-title="給目標網頁" class="numeric" name="targetn">{{infos["dsturl"]}}</td>
+			            <td data-title="傳的網址" class="numeric" name="targetn">{{infos["token"]}}</td>
+			            <td data-title="備註" class="numeric" name="targetn">{{infos["description"]}}</td>
 			        </tr>
 			    {% endfor %}
 		    </tbody>
