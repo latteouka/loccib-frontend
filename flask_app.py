@@ -602,6 +602,27 @@ def getmyip():
     print(timenow)
     return f'test'
 
+@app.route("/getip", methods=["GET"])
+def getip():
+    
+    user = current_user.get_id()
+
+    connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+                             user=os.environ.get('CLEARDB_DATABASE_USER'),
+                             password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
+                             db=os.environ.get('CLEARDB_DATABASE_DB'),
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+
+    with connection.cursor() as cursor:
+        sql = "SELECT * FROM `getip` WHERE `user`=%s ORDER BY `id` DESC LIMIT 30"
+        cursor.execute(sql, (user,))
+        results = cursor.fetchall()
+        cursor.close()
+
+    
+    return render_template('getip.html',**locals())
+
 
 if __name__ == 'main':
     app.run() #啟動伺服器

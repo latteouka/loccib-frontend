@@ -1,0 +1,36 @@
+{% block content %}
+<section id="no-more-tables">
+	<div class="container">
+
+		<h3> 使用者：<u>{{user}}</u></h3>
+
+		<hr>
+		
+		<table class="table-bordered table-striped table-condensed cf">
+		    <thead class="cf">
+		        <tr>
+		            <th class="numeric">目標</th>
+		            <th class="numeric">時間</th>
+		            <th class="numeric">給目標網頁</th>
+		            <th class="numeric">傳的網址</th>
+		            <th class="numeric">備註</th>
+		            <th class="numeric">紀錄</th>
+		        <tr>
+		    </thead>
+		    <tbody>
+		    	{% for result in results %}
+			        <tr>
+			            <td data-title="目標" class="numeric" name="targetk"><b>{{result["target"]}}</a></b></td>
+			            <td data-title="時間" class="numeric" name="targeth">{{result["time"]}}</td>
+			            <td data-title="給目標網頁" class="numeric" name="targetn">{{result["dsturl"]}}</td>
+			            <td data-title="傳的網址" class="numeric" name="targetn">{{result["token"]}}</td>
+			            <td data-title="備註" class="numeric" name="targetn">{{result["description"]}}</td>
+			            <td data-title="紀錄" class="numeric"><a href="/getiprecord?token={{result["token"]}}" class="btn-sm btn-info" role="button">紀錄</a></td>
+			        </tr>
+			    {% endfor %}
+		    </tbody>
+		</table>
+		
+	</div>
+</section>
+{% endblock %}
