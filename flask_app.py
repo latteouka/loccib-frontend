@@ -589,7 +589,12 @@ def whois():
     response.headers["Content-type"] = "text/csv"
     return response
 
-    
+@app.route("/getmyip", methods=["GET"])
+def getmyip():
+    print(request.remote_addr)
+    print(request.remote_port)
+    print(request.access_route[0])
+    return f'test'
 
 
 if __name__ == 'main':
