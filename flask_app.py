@@ -249,6 +249,10 @@ def recorddele():
     header = request.args.get('header')
     user = current_user.get_id()
 
+    print(header)
+
+    print(user)
+
     connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
                              user=os.environ.get('CLEARDB_DATABASE_USER'),
                              password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
