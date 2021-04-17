@@ -219,6 +219,30 @@ def target():
     
     return render_template('target_records.html',**locals())
 
+
+@app.route("/manage", methods=['GET'])
+@login_required
+def manage():
+
+    user = current_user.get_id()
+
+    connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+                             user=os.environ.get('CLEARDB_DATABASE_USER'),
+                             password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
+                             db=os.environ.get('CLEARDB_DATABASE_DB'),
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+
+    with connection.cursor() as cursor:
+        sql = "SELECT `header`, COUNT(`header`) FROM `records` WHERE `user`=%s GROUP BY `header`"
+        cursor.execute(sql, (user))
+        results = cursor.fetchall()
+        print(results)
+        cursor.close()
+
+    
+    return f'check log'
+
 #輸出csv
 @app.route('/export', methods=['GET'])
 def export():
