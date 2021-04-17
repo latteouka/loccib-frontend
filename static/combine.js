@@ -91,6 +91,7 @@ function getresult_3() {
   result_string = result_string.slice(0, -1)
 
   document.getElementById("result").value = result_string;
+  
 }
 
 function getresult_4() {
@@ -117,6 +118,63 @@ function getresult_4() {
 
   document.getElementById("result").value = result_string;
 }
+
+
+
+function getresult_5() {
+  
+  var input1 = document.getElementById("input1").value;
+  var input1s = input1.split('\n');
+
+  var input2 = document.getElementById("input2").value;
+  var input2s = input2.split('\n');
+
+  if(input1s.length !== input2s.length) {
+    alert("數量不相等！");
+    return;
+  }
+  
+  result_string = ""
+
+  for (i = 0; i < input1s.length; i++) { 
+    result_string = result_string + input1s[i] + " " + input2s[i] + "\n"
+  }
+  //delete \n
+  result_string = result_string.slice(0, -1)
+
+  document.getElementById("result").value = result_string;
+}
+
+
+
+
+function getresult_6() {
+  
+  var input1 = document.getElementById("input1").value;
+  var input1s = input1.split('\n');
+
+  var input2 = document.getElementById("input2").value;
+  var input2s = input2.split('\n');
+
+  if(input1s.length !== input2s.length) {
+    alert("數量不相等！");
+    return;
+  }
+  
+  result_string = ""
+
+  for (i = 0; i < input1s.length; i++) { 
+    result_string = result_string + input1s[i] + input2s[i] + "\n"
+  }
+
+  //delete \n
+  result_string = result_string.slice(0, -1)
+
+  document.getElementById("result").value = result_string;
+
+}
+
+
 
 
 function copytoinput1() {
