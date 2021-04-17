@@ -237,7 +237,6 @@ def manage():
         sql = "SELECT `header`, COUNT(`header`), MAX(`time`) FROM `records` WHERE `user`=%s GROUP BY `header` ORDER BY `id` DESC"
         cursor.execute(sql, (user))
         results = cursor.fetchall()
-        print(results)
         cursor.close()
 
     
@@ -250,7 +249,17 @@ def recorddele():
     header = request.args.get('header')
     user = current_user.get_id()
 
-    print(header)
+    connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+                             user=os.environ.get('CLEARDB_DATABASE_USER'),
+                             password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
+                             db=os.environ.get('CLEARDB_DATABASE_DB'),
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+
+    with connection.cursor() as cursor:
+        sql = "DELETE FROM records WHERE USER =%s AND HEADER=%s"
+        cursor.execute(sql, (user, header))
+        cursor.close()
 
     
     return redirect(url_for('manage'))
