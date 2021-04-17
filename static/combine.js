@@ -1,6 +1,10 @@
+
+document.getElementById("input").value = "text1\ntext2\ntext3";
+
+
 function getresult_1() {
   
-  var input = document.getElementById("number").value;
+  var input = document.getElementById("input").value;
   var inputs = input.split('\n');
   
   result_string = ""
