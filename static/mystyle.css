@@ -59,7 +59,7 @@
 
   .parent .top_part { background-color: #fff; }
 
-  .parent .number_main_part { 
+  .parent_number .number_main_part { 
     grid-template-columns: 1fr;
     grid-gap: 3em;
 }
