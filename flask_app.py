@@ -422,26 +422,30 @@ def insaddnew():
     return f'add new insrecord'
 
 
-# 投單用
+# //MARK: - 投單用
 @app.route("/format", methods=['GET'])
 def format():    
     return render_template('format.html')
 
-# 投單用
+# //MARK: - 投單用
 @app.route("/number", methods=['GET'])
 def number():    
     return render_template('number.html')
 
-# 文字同串
+# //MARK: - 文字同串
 @app.route("/oneline", methods=['GET'])
 def oneline():    
     return render_template('oneline.html')
 
-# 文字組合
+# //MARK: - 文字組合
 @app.route("/combine", methods=['GET'])
 def combine():    
     return render_template('combine.html')
 
+# //MARK: - autopic
+@app.route("/autopic", methods=['GET'])
+def autopic():    
+    return render_template('autopic.html')
 
 
 @app.route("/whois", methods=['POST'])
