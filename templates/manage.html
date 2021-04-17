@@ -20,7 +20,7 @@
 		            <th class="numeric">Header</th>
 		            <th class="numeric">筆數</th>
 		            <th class="numeric">最後定位時間</th>
-		            <th class="numeric">Delete</th>
+		            <th class="numeric">刪除全部</th>
 		        <tr>
 		    </thead>
 		    <tbody>
@@ -29,7 +29,7 @@
 			            <td data-title="Keyword" class="numeric" name="targetk"><b>{{result["header"]}}</a></b></td>
 			            <td data-title="Header" class="numeric" name="targeth">{{result["COUNT(`header`)"]}}</td>
 			            <td data-title="Number" class="numeric" name="targetn">{{result["MAX(`time`)"]}}</td>
-			            <td data-title="Delete" class="numeric"><a href="/inslocdele?id={{result["id"]}}" class="btn-sm btn-danger" role="button">Delete</a></td>
+			            <td data-title="Delete" class="numeric"><a href="/recorddele?id={{result["id"]}}&header={{result["header"]}}" class="btn-sm btn-danger" role="button" onclick="return confirm('確定要刪除嗎？');">Delete</a></td>
 			        </tr>
 			    {% endfor %}
 		    </tbody>
