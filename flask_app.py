@@ -263,10 +263,9 @@ def recorddele():
     with connection.cursor() as cursor:
         sql = "DELETE FROM `records` WHERE `user`=%s AND `header`=%s"
         cursor.execute(sql, (user, header))
-        results = cursor.fetchall()
         cursor.close()
 
-    
+    connection.commit()
     return redirect(url_for('manage'))
 
 #輸出csv
