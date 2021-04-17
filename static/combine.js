@@ -21,7 +21,7 @@ function getresult_1() {
 
 function getresult_2() {
   
-  var input = document.getElementById("number").value;
+  var input = document.getElementById("input").value;
   var inputs = input.split('\n');
   
   result_string = ""
@@ -38,7 +38,7 @@ function getresult_2() {
 
 function getresult_3() {
   
-  var input = document.getElementById("number").value;
+  var input = document.getElementById("input").value;
   var inputs = input.split('\n');
   
   result_string = ""
