@@ -1,0 +1,56 @@
+
+
+{% extends 'base.html' %}
+{% block title %}Records{% endblock %}
+
+
+
+{% block content %}
+
+<div class="parent_number">
+
+    <div class="top_part">
+        <h3>文字組合</h3>
+        <table class="top_part_table">
+            <tr>
+                <td>test1<br>test2<br>test3</td>
+                <td>➞</td>
+                <td>test1,test2,test3</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="number_main_part">
+
+        <div class="main_col" id="div1">
+            <div class="main_row main_row_title">
+                <p>Input:</p>
+            </div>
+            <div class="main_row">
+                <textarea class="form-control" name="input1" rows="20" id="number"></textarea>
+            </div>
+            <div class="main_row main_row_button">
+                <button type="submit" class="btn btn-danger button" onclick="getresult_1()" id="number">,</button>
+                <button type="submit" class="btn btn-danger button" onclick="getresult_2()" id="number">，</button>
+                <button type="submit" class="btn btn-danger button" onclick="getresult_3()" id="number">、</button>
+            </div> 
+        </div>
+
+        <div class="main_col" id="div2">
+            <div class="main_row main_row_title">
+                <p>Result:</p>
+            </div>
+            <div class="main_row">
+                <textarea class="form-control" name="result" rows="20" id="result"></textarea>
+            </div>
+            <div class="main_row main_row_button">
+                <button type="submit" class="btn btn-primary button" onclick="clickcopy()">複製</button>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<script src="{{url_for('.static', filename='combine.js')}}"></script>
+{% endblock %}
