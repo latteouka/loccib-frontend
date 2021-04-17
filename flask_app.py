@@ -624,5 +624,33 @@ def getip():
     return render_template('getip.html',**locals())
 
 
+@app.route("/getiprecords", methods=["GET"])
+def getiprecords():
+
+    token = request.args.get('token')
+    user = current_user.get_id()
+
+    connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+                             user=os.environ.get('CLEARDB_DATABASE_USER'),
+                             password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
+                             db=os.environ.get('CLEARDB_DATABASE_DB'),
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+
+    with connection.cursor() as cursor:
+        sql = "SELECT * FROM `getip` WHERE `token`=%s"
+        cursor.execute(sql, (token))
+        infos = cursor.fetchall()
+
+        sql = "SELECT * FROM `getip` WHERE `token`=%s ORDER BY `id` DESC"
+        cursor.execute(sql, (token))
+        records = cursor.fetchall()
+
+        cursor.close()
+
+    
+    return render_template('getiprecords.html',**locals())
+
+
 if __name__ == 'main':
     app.run() #啟動伺服器
