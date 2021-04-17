@@ -17,22 +17,18 @@
 		<table class="table-bordered table-striped table-condensed cf">
 		    <thead class="cf">
 		        <tr>
-		            <th class="numeric">Keyword</th>
 		            <th class="numeric">Header</th>
-		            <th class="numeric">Number</th>
-		            <th class="numeric">URL</th>
-		            <th class="numeric">Status</th>
+		            <th class="numeric">筆數</th>
+		            <th class="numeric">最後定位時間</th>
 		            <th class="numeric">Delete</th>
 		        <tr>
 		    </thead>
 		    <tbody>
 		    	{% for result in results %}
 			        <tr>
-			            <td data-title="Keyword" class="numeric" name="targetk"><b>{{result["keyword"]}}</a></b></td>
-			            <td data-title="Header" class="numeric" name="targeth">{{result["header"]}}</td>
-			            <td data-title="Number" class="numeric" name="targetn">{{result["number"]}}</td>
-			            <td data-title="URL" class="numeric" name="targetu">{{result["url"]}}</td>
-			            <td data-title="Status" class="numeric" name="targets">{{result["status"]}}</td>
+			            <td data-title="Keyword" class="numeric" name="targetk"><b>{{result["header"]}}</a></b></td>
+			            <td data-title="Header" class="numeric" name="targeth">{{result["COUNT(`header`)"]}}</td>
+			            <td data-title="Number" class="numeric" name="targetn">{{result["MAX(`time`)"]}}</td>
 			            <td data-title="Delete" class="numeric"><a href="/inslocdele?id={{result["id"]}}" class="btn-sm btn-danger" role="button">Delete</a></td>
 			        </tr>
 			    {% endfor %}
