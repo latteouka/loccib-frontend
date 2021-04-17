@@ -15,6 +15,11 @@
 	  td, th {text-align: left; white-space: nowrap;}
 	  td.numeric, th.numeric { text-align: center; }
 	  h2, h3 {margin-top: 1em;}
+	  @media only screen and (max-width: 800px) {
+	  	.nav-item {
+	  		padding-left: 5%;
+	  	}
+	  }
     </style>
 
 	<title>CIBTools</title>
@@ -33,7 +38,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav" style="padding-left: 5%">
+			<div class="navbar-nav">
 			  <a class="nav-item nav-link" href="/number">電話投單</a>
 			  <a class="nav-item nav-link" href="/format">IP投單</a>
 			</div>
