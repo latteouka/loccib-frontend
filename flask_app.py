@@ -591,7 +591,7 @@ def whois():
 
 @app.route("/getmyip", methods=["GET"])
 def getmyip():
-    print(request.environ['REMOTE_ADDR'])
+    print(request.environ.get('REMOTE_PORT'))
     print(request.access_route)
 
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
