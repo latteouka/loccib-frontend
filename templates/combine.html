@@ -20,26 +20,25 @@
         </table>
     </div>
 
-    <div class="number_main_part">
+    <div class="combine_main_part">
 
-        <div class="main_col" id="div1">
+        <div class="main_col">
             <div class="main_row main_row_title">
                 <p>Input1:</p>
             </div>
             <div class="main_row">
-                <textarea class="form-control" name="input1" rows="20" id="input"></textarea>
+                <textarea class="form-control" name="input1" rows="20" id="input1"></textarea>
             </div>
             <div class="main_row main_row_button">
-                
             </div> 
         </div>
 
-        <div class="main_col" id="div1">
+        <div class="main_col">
             <div class="main_row main_row_title">
                 <p>Input2:</p>
             </div>
             <div class="main_row">
-                <textarea class="form-control" name="input1" rows="20" id="input"></textarea>
+                <textarea class="form-control" name="input1" rows="20" id="input2"></textarea>
             </div>
             <div class="main_row main_row_button">
                 <button type="submit" class="btn btn-danger button" onclick="getresult_1()" id="number">,</button>
@@ -49,7 +48,7 @@
             </div> 
         </div>
 
-        <div class="main_col" id="div2">
+        <div class="main_col">
             <div class="main_row main_row_title">
                 <p>Result:</p>
             </div>
@@ -65,5 +64,5 @@
     </div>
 </div>
 
-<script src="{{url_for('.static', filename='oneline.js')}}"></script>
+<script src="{{url_for('.static', filename='combine.js')}}"></script>
 {% endblock %}

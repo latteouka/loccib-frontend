@@ -432,7 +432,9 @@ input[type=password]:placeholder {
   display: grid;
   grid-template-rows: auto;
   /*justify-items: center;*/
+  align-self: start;
 }
+
 
 .main_row span {
   margin: 0px;
@@ -457,6 +459,14 @@ input[type=password]:placeholder {
   display: grid;
   margin-top: 20px;
   grid-template-columns: 1fr 2fr;
+  grid-gap: 1em;
+  
+}
+
+.combine_main_part {
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1em;
   
 }
