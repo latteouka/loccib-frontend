@@ -682,7 +682,7 @@ def getipexport():
         cursor.close()
     
     time_f = results["time"]
-    time_f = time_f[0:4]+time_f[5:7]+time_f[8:10]+time_f[11:13]+time_f[14:16]+time_f[17:19]
+    time_f = time_f[0:4]+time_f[5:7]+time_f[8:10]+time_f[11:13]+time_f[14:16]
 
     ips_array = [results["ip"],time_f,results["port"]]
 
