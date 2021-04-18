@@ -19,16 +19,16 @@
 		
 		<hr>
 
-		<p>目標資訊： {{infos[0]["target"]}}</p>
-		<p>網址建立時間： {{infos[0]["time"]}}</p>
-		<p>最終呈現頁面： {{infos[0]["dsturl"]}}</p>
-		<p>給對方的網址： https://dailynewstw.herokuapp.com/news/{{infos[0]["token"]}} <span onclick="clickcopy()">Copy</span></p> 
+		<p><b>目標資訊：</b> {{infos[0]["target"]}}</p>
+		<p><b>網址建立時間：</b> {{infos[0]["time"]}}</p>
+		<p><b>最終呈現頁面：</b> {{infos[0]["dsturl"]}}</p>
+		<p><b>給對方的網址：</b> https://dailynewstw.herokuapp.com/news/{{infos[0]["token"]}} <span onclick="clickcopy()">Copy</span></p> 
 		{% if infos[0]["description"] %}
-			<p>備註： {{infos[0]["description"]}}</p>
+			<p><b>備註：</b> {{infos[0]["description"]}}</p>
 		{% endif %}
 		
 		<br>
-		<p>IP紀錄：</p>	
+		<p><b>IP紀錄：</b></p>	
 
 		<table class="table-bordered table-striped table-condensed cf">
 		    <thead class="cf">
