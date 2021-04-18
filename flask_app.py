@@ -744,7 +744,33 @@ def getipexport():
     response.headers['Content-Disposition'] = disposition.encode('utf-8')
     response.headers["Content-type"] = "text/csv"
     return response
-    
+ 
+@app.route("/getipadd", methods=['POST'])
+def getipadd():
+
+    keyword = request.form.get('keyword')
+    print(keyword)
+    header = request.form.get('header')
+    number = request.form.get('number')
+    url = request.form.get('url')
+    status = request.form.get('status')
+
+    connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+                             user=os.environ.get('CLEARDB_DATABASE_USER'),
+                             password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
+                             db=os.environ.get('CLEARDB_DATABASE_DB'),
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+
+    with connection.cursor() as cursor:
+        sql = "INSERT INTO `inslocs` (`keyword`, `header`, `number`, `url`, `status`) VALUES (%s, %s, %s, %s, %s)"
+        
+        cursor.execute(sql, (keyword, header, number, url, status))
+        
+        cursor.close()
+
+    connection.commit()
+    return redirect(url_for('insloc'))   
 
 
 if __name__ == 'main':
