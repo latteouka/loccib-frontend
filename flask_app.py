@@ -330,7 +330,7 @@ def login():
 
         next = request.args.get('next')
 
-        return redirect(next or url_fourl_for('show'))
+        return redirect(next or url_for('show'))
 
     flash('登入失敗了...')
     return render_template('login.html')
