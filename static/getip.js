@@ -28,7 +28,7 @@ function copyToClipboard(elementId) {
 
 
 function show() {
-  var x = document.getElementById("add_form");
+  var x = document.getElementById("formContent");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
