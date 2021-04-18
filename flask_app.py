@@ -641,10 +641,12 @@ def getiprecords():
         sql = "SELECT * FROM `getip` WHERE `token`=%s"
         cursor.execute(sql, (token))
         infos = cursor.fetchall()
+        print(infos)
 
         sql = "SELECT * FROM `getiprecords` WHERE `token`=%s ORDER BY `id` DESC"
         cursor.execute(sql, (token))
         records = cursor.fetchall()
+        print(records)
 
         cursor.close()
 
