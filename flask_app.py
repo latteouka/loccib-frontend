@@ -309,7 +309,7 @@ def export():
 #登入頁面
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    next = request.args.get('next')
+
 
     if request.method == 'GET':
         return render_template("login.html")
@@ -327,7 +327,13 @@ def login():
         user = User()
         user.id = 使用者
         login_user(user)
-        return redirect(next)
+
+        next = request.args.get('next')
+
+        if not is_safe_url(next):
+            return flask.abort(400)
+            
+        return redirect(next or url_fourl_for('show'))
 
     flash('登入失敗了...')
     return render_template('login.html')
