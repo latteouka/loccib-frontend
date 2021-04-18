@@ -513,6 +513,7 @@ input[type=password]:placeholder {
 }
 
 .main_col_autopic table {
+  width: 50%;
   border: 1px solid #000;
 }
 
