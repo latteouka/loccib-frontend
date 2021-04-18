@@ -17,6 +17,19 @@
 		</div>
 
 		<div style="clear: both;"></div>
+
+		<div class="wrapper">
+			<div id="formContent" style="display: none;">
+				<h3>新增一筆</h3>
+				<form method="post" action="/getipadd">
+		      		<input type="text" id="target" name="target" placeholder="目標">
+		      		<input type="text" id="dsturl" name="dsturl" placeholder="最終呈現頁面(含https://)">
+		      		<input type="text" id="description" name="description" placeholder="備註(可不填)">
+		      		<input type="submit" class="fourth" value="新增">
+		    	</form>
+		    </div>
+		</div>
+		
 		<h3>轉址連結</h3>		
 		<table class="table-bordered table-striped table-condensed cf">
 		    <thead class="cf">
@@ -42,17 +55,7 @@
 		</table>
 		
 	</div>
-	<div class="wrapper">
-			<div id="formContent" style="display: none;">
-				<h3>新增一筆</h3>
-				<form method="post" action="/getipadd">
-		      		<input type="text" id="target" name="target" placeholder="目標">
-		      		<input type="text" id="dsturl" name="dsturl" placeholder="最終呈現頁面(含https://)">
-		      		<input type="text" id="description" name="description" placeholder="備註(可不填)">
-		      		<input type="submit" class="fourth" value="新增">
-		    	</form>
-		    </div>
-	    </div>
+	
 </section>
 <script src="{{url_for('.static', filename='getip.js')}}"></script>
 {% endblock %}
