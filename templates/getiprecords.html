@@ -19,7 +19,13 @@
 		
 		<hr>
 
-		<p>目標資訊：</p>
+		<p>目標資訊：{{info["target"]}}</p>
+		<p>網址建立時間：{{info["time"]}}</p>
+		<p>最終呈現頁面：{{info["dsturl"]}}</p>
+		<p>給對方的網址：https://dailynewstw.herokuapp.com/news/{{info["token"]}}</p>
+		{% if {{info["description"]}} %}
+			<p>備註：{{info["description"]}}</p>
+		{% endif %}
 		
 		<table class="table-bordered table-striped table-condensed cf">
 		    <thead class="cf">
