@@ -36,7 +36,6 @@
 			            <th class="numeric">IP位址</th>
 			            <th class="numeric">Port</th>
 			            <th class="numeric">備註</th>
-			            <th class="numeric">下載</th>
 			        <tr>
 			    </thead>
 			    <tbody>
@@ -48,9 +47,8 @@
 							{% else %}
 								<td data-title="IP位址" class="numeric" name="targeth">{{record["ip"]}}</td>
 							{% endif %}
-				            <td data-title="Port" class="numeric" name="targetn">{{record["port"]}}</td>
+				            <td data-title="Port" class="numeric" name="targetn"><a href="/getipexport?recordid={{record["id"]}}">{{record["port"]}}</a></td>
 				            <td data-title="備註" class="numeric" name="targetn">{{record["description"]}}</td>
-				            <td data-title="下載" class="numeric"><a href="/getipexport?recordid={{record["id"]}}">投單</a></td>
 				        </tr>
 				    {% endfor %}
 			    </tbody>
