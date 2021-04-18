@@ -51,7 +51,7 @@
 			            <td data-title="IP位址" class="numeric" name="targeth">{{record["ip"]}}</td>
 			            <td data-title="Port" class="numeric" name="targetn">{{record["port"]}}</td>
 			            <td data-title="備註" class="numeric" name="targetn">{{record["description"]}}</td>
-			            <td data-title="投單格式" class="numeric"><a href="/getiprecords?token={{result["token"]}}" class="btn-sm btn-secondary" role="button">投單格式</a></td>
+			            <td data-title="投單格式" class="numeric"><a href="/getipexport?token={{record["id"]}}" class="btn-sm btn-secondary" role="button">投單格式</a></td>
 			        </tr>
 			    {% endfor %}
 		    </tbody>
