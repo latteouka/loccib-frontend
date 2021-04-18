@@ -632,6 +632,9 @@ def getiprecords():
     token = request.args.get('token')
     user = current_user.get_id()
 
+    taiwanips = ['111', '210', '36', '42', '134', '123', '180', '221', '218', '58', '1', '220', '59', '113', '116', '223', '110', '140', '125', '60',
+                        '202', '114', '115', '120', '182', '122', '101', '106', '61', '117', '159', '150', '27', '222', '124', '163', '39', '219', '121', '168', '118', '112', '211', '119', '139', '175', '203', '49']
+
     connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
                              user=os.environ.get('CLEARDB_DATABASE_USER'),
                              password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
