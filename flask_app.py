@@ -5,6 +5,7 @@ from flask import make_response
 from flask import url_for
 from flask import redirect
 from flask import flash
+from flask import session
 
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 
@@ -308,6 +309,8 @@ def export():
 #登入頁面
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    next = flask.request.args.get('next')
+    
     if request.method == 'GET':
         return render_template("login.html")
 
