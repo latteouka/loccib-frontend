@@ -748,12 +748,18 @@ def getipexport():
 @app.route("/getipadd", methods=['POST'])
 def getipadd():
 
-    keyword = request.form.get('keyword')
-    print(keyword)
-    header = request.form.get('header')
-    number = request.form.get('number')
-    url = request.form.get('url')
-    status = request.form.get('status')
+    user = current_user.get_id()
+
+    target = request.form.get('target')
+    dsturl = request.form.get('dsturl')
+    description = request.form.get('description')
+
+    token = secrets.token_hex(4)
+
+    dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
+    dt2 = dt1.astimezone(timezone(timedelta(hours=8))) # 轉換時區 -> 東八區
+
+    timenow = dt2.strftime("%Y-%m-%d %H:%M:%S")
 
     connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
                              user=os.environ.get('CLEARDB_DATABASE_USER'),
@@ -763,14 +769,14 @@ def getipadd():
                              cursorclass=pymysql.cursors.DictCursor)
 
     with connection.cursor() as cursor:
-        sql = "INSERT INTO `inslocs` (`keyword`, `header`, `number`, `url`, `status`) VALUES (%s, %s, %s, %s, %s)"
+        sql = "INSERT INTO `getip` (`user`, `target`, `dsturl`, `token`, `description`, `time`) VALUES (%s, %s, %s, %s, %s, %s)"
         
-        cursor.execute(sql, (keyword, header, number, url, status))
+        cursor.execute(sql, (user, target, dsturl, token, description, timenow))
         
         cursor.close()
 
     connection.commit()
-    return redirect(url_for('insloc'))   
+    return redirect(url_for('getip'))   
 
 
 if __name__ == 'main':
