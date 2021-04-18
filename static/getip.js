@@ -1,6 +1,6 @@
 function clickcopy() {
   /* Get the text field */
-  var copyText = document.getElementById("url");
+  var copyText = document.getElementById("url").innerHTML;
 
   /* Select the text field */
   copyText.select(); 
