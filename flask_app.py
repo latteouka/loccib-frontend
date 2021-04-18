@@ -329,7 +329,6 @@ def login():
         login_user(user)
 
         next = request.args.get('next')
-        print(next)
 
         return redirect(next or url_for('show'))
 
