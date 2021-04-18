@@ -309,8 +309,8 @@ def export():
 #登入頁面
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    next = flask.request.args.get('next')
-    
+    next = request.args.get('next')
+    print(next)
     if request.method == 'GET':
         return render_template("login.html")
 
