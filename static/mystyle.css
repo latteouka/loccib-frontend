@@ -20,26 +20,27 @@
 	#no-more-tables tr { border: 1px solid #ccc; }
  
 	#no-more-tables td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #c5c3c3; 
-		position: relative;
-		padding-left: 40%; 
-		white-space: normal;
-		text-align:center;
-	}
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee; 
+    position: relative;
+    padding-left: 50%; 
+    white-space: normal;
+    text-align:left;
+  }
  
 	#no-more-tables td:before { 
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding 
-		#top: 1px;
-		left: 1px;*/
-		width: 30%; 
-		padding-right: 40px; 
-		text-align:right;
-		font-weight: bold;
-	}
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%; 
+    padding-right: 10px; 
+    white-space: nowrap;
+    text-align:left;
+    font-weight: bold;
+  }
  
 	/*
 	Label the data
