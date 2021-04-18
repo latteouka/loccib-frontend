@@ -7,7 +7,9 @@
 	#no-more-tables th, 
 	#no-more-tables td, 
 	#no-more-tables tr { 
-		display: block; 
+		display: block;
+    table-layout: fixed;
+    word-wrap:break-word;
 	}
  
 	/* Hide table headers (but not display: none;, for accessibility) */
