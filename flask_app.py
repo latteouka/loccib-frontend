@@ -341,7 +341,7 @@ def logout():
     使用者 = current_user.get_id()
     logout_user()
     #flash(f'{使用者}！掰掰！')
-    return render_template('login.html')
+    return redirect(url_for('login'))
 
 #
 #處理即時定位 line restful insloc
