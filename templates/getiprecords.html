@@ -50,7 +50,7 @@
 							{% endif %}
 				            <td data-title="Port" class="numeric" name="targetn">{{record["port"]}}</td>
 				            <td data-title="備註" class="numeric" name="targetn">{{record["description"]}}</td>
-				            <td data-title="下載" class="numeric" style="width: 85px"><a href="/getipexport?recordid={{record["id"]}}" class="btn-sm btn-secondary" role="button">投單格式</a></td>
+				            <td data-title="下載" class="numeric"><a href="/getipexport?recordid={{record["id"]}}" class="btn-sm btn-secondary" role="button">投單格式</a></td>
 				        </tr>
 				    {% endfor %}
 			    </tbody>
