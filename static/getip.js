@@ -20,7 +20,8 @@ function copyToClipboard(elementId) {
   // Remove the input from the body
   document.body.removeChild(aux);
 
-  /* Alert the copied text */
+  /* Alert the copied text 
   alert("Copied!!");
+  */
 
 }
