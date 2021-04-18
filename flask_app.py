@@ -330,9 +330,6 @@ def login():
 
         next = request.args.get('next')
 
-        if not is_safe_url(next):
-            return flask.abort(400)
-            
         return redirect(next or url_fourl_for('show'))
 
     flash('登入失敗了...')
