@@ -742,7 +742,7 @@ def getipadd():
         cursor.close()
 
     connection.commit()
-    return redirect(url_for('getip'))   
+    return redirect(url_for('getip'))
 
 
 if __name__ == 'main':
