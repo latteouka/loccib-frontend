@@ -73,6 +73,10 @@
     height: 80px;
   }
 
+  .parent .top_part table {
+    width: 90%;
+  }
+
 }
 
 
