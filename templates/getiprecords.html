@@ -19,12 +19,12 @@
 		
 		<hr>
 
-		<p>目標資訊：{{infos[0]["target"]}}</p>
-		<p>網址建立時間：{{infos[0]["time"]}}</p>
-		<p>最終呈現頁面：{{infos[0]["dsturl"]}}</p>
-		<p>給對方的網址：https://dailynewstw.herokuapp.com/news/{{infos[0]["token"]}}</p>
+		<p>目標資訊： {{infos[0]["target"]}}</p>
+		<p>網址建立時間： {{infos[0]["time"]}}</p>
+		<p>最終呈現頁面： {{infos[0]["dsturl"]}}</p>
+		<p>給對方的網址： https://dailynewstw.herokuapp.com/news/{{infos[0]["token"]}} <span onclick="clickcopy()">Copy</span></p> 
 		{% if infos[0]["description"] %}
-			<p>備註：{{infos[0]["description"]}}</p>
+			<p>備註： {{infos[0]["description"]}}</p>
 		{% endif %}
 		
 		<br>
@@ -59,4 +59,5 @@
 		
 	</div>
 </section>
+<script src="{{url_for('.static', filename='format.js')}}"></script>
 {% endblock %}
