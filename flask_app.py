@@ -310,7 +310,7 @@ def export():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     next = request.args.get('next')
-    print(next)
+
     if request.method == 'GET':
         return render_template("login.html")
 
@@ -327,7 +327,7 @@ def login():
         user = User()
         user.id = 使用者
         login_user(user)
-        return redirect(url_for('show'))
+        return redirect(url_for(next))
 
     flash('登入失敗了...')
     return render_template('login.html')
