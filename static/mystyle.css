@@ -9,7 +9,7 @@
 	#no-more-tables tr { 
 		display: block;
     table-layout: fixed;
-    word-wrap:break-word;
+    word-break: break-all;
 	}
  
 	/* Hide table headers (but not display: none;, for accessibility) */
