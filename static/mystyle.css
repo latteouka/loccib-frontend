@@ -27,6 +27,7 @@
     padding-left: 50%; 
     white-space: normal;
     text-align:left;
+    word-break: break-all;
   }
  
 	#no-more-tables td:before { 
