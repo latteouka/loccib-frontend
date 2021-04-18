@@ -32,10 +32,10 @@
 	#no-more-tables td:before { 
 		/* Now like a table header */
 		position: absolute;
-		/* Top/left values mimic padding */
-		top: 1px;
-		left: 1px;
-		width: 30%; 
+		/* Top/left values mimic padding 
+		#top: 1px;
+		left: 1px;*/
+		width: 40%; 
 		padding-right: 40px; 
 		text-align:right;
 		font-weight: bold;
@@ -536,9 +536,4 @@ input[type=password]:placeholder {
   height: 144px;
   margin: auto;
 }
-
-.main_row_getip td {
-
-}
-
 
