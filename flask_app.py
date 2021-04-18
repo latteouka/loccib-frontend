@@ -327,7 +327,7 @@ def login():
         user = User()
         user.id = 使用者
         login_user(user)
-        return redirect(url_for(next))
+        return redirect(next)
 
     flash('登入失敗了...')
     return render_template('login.html')
