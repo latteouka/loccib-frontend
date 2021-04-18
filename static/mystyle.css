@@ -152,6 +152,10 @@ footer {
   height:3%;
 }
 
+p {
+  word-break: break-all;
+}
+
 
 
 /* STRUCTURE */
