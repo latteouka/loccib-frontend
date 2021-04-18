@@ -46,10 +46,10 @@
 		    <tbody>
 		    	{% for result in results %}
 			        <tr>
-			            <td data-title="時間" class="numeric" name="targetk"><b>{{records["target"]}}</a></b></td>
-			            <td data-title="IP位址" class="numeric" name="targeth">{{records["time"]}}</td>
-			            <td data-title="Port" class="numeric" name="targetn">{{records["dsturl"]}}</td>
-			            <td data-title="備註" class="numeric" name="targetn">{{records["token"]}}</td>
+			            <td data-title="時間" class="numeric" name="targetk"><b>{{records["time"]}}</a></b></td>
+			            <td data-title="IP位址" class="numeric" name="targeth">{{records["ip"]}}</td>
+			            <td data-title="Port" class="numeric" name="targetn">{{records["port"]}}</td>
+			            <td data-title="備註" class="numeric" name="targetn">{{records["description"]}}</td>
 			            <td data-title="投單格式" class="numeric"><a href="/getiprecords?token={{result["token"]}}" class="btn-sm btn-secondary" role="button">投單格式</a></td>
 			        </tr>
 			    {% endfor %}
