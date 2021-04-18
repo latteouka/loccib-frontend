@@ -34,7 +34,7 @@
 			    {% endfor %}
 		    </tbody>
 		</table>
-
+		<br>
 		<p>IP紀錄：</p>	
 
 		<table class="table-bordered table-striped table-condensed cf">
@@ -52,7 +52,7 @@
 			        <tr>
 			            <td data-title="時間" class="numeric" name="targetk"><b>{{record["time"]}}</a></b></td>
 						{% if record["ip"].split(',')[0] in taiwanips %}
-							<td data-title="IP位址" class="numeric" name="targeth" style="color: red;">{{record["ip"]}}</td>
+							<td data-title="IP位址" class="numeric" name="targeth" style="color: red;"><b>{{record["ip"]}}</b></td>
 						{% else %}
 							<td data-title="IP位址" class="numeric" name="targeth">{{record["ip"]}}</td>
 						{% endif %}
