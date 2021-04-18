@@ -7,7 +7,14 @@
 	<div class="container">
 
 		<h3> 使用者：<u>{{user}}</u></h3>
+		<div style="float: left;">
+			<a href="https://loccib.herokuapp.com/" class="btn btn-secondary" role="button">回上頁</a>
+		</div>
+		<div style="float: right">
+		</div>
 
+		<div style="clear: both;"></div>
+		
 		<hr>
 
 		<p>目標資訊：</p>
@@ -48,6 +55,8 @@
 		        <tr>
 		    </thead>
 		    <tbody>
+		    	<p>{{taiwanips}}</p>
+		    	<p>{{records[0]["ip"].split(',')[0]}}</p>
 		    	{% for record in records %}
 			        <tr>
 			            <td data-title="時間" class="numeric" name="targetk"><b>{{record["time"]}}</a></b></td>
