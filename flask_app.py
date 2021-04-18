@@ -62,11 +62,9 @@ def which_isp(ip):
     else:
         is_twm = False
     
-    #print(ip)
-    results = IPWhois(ip).lookup_rdap(asn_methods=['dns', 'whois', 'http'])
 
-    print(results['network']['name'])
-    
+    results = IPWhois(ip).lookup_rdap(asn_methods=['dns', 'whois', 'http'])
+  
 
     if is_twm:
         return '台灣大哥大', '使用者資料'
@@ -191,7 +189,6 @@ def show():
         sql = "SELECT * FROM `records` WHERE `user`=%s ORDER BY `id` DESC LIMIT 96"
         cursor.execute(sql, (user,))
         results = cursor.fetchall()
-        #print(result)
         cursor.close()
 
     
@@ -250,10 +247,6 @@ def manage():
 def recorddele():
     header = request.args.get('header')
     user = current_user.get_id()
-
-    print(header)
-
-    print(user)
 
     connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
                              user=os.environ.get('CLEARDB_DATABASE_USER'),
@@ -362,7 +355,6 @@ def insloc():
         sql = "SELECT * FROM `inslocs` ORDER BY `id` ASC"
         cursor.execute(sql, )
         results = cursor.fetchall()
-        #print(result)
         cursor.close()
 
     
@@ -372,7 +364,6 @@ def insloc():
 def inslocadd():
 
     keyword = request.form.get('keyword')
-    print(keyword)
     header = request.form.get('header')
     number = request.form.get('number')
     url = request.form.get('url')
@@ -432,7 +423,6 @@ def status():
         sql = "SELECT * FROM `status` WHERE `id`=4"
         cursor.execute(sql, )
         results = cursor.fetchone()
-        #print(result)
         cursor.close()
 
     status = results["keyword"]
@@ -505,14 +495,10 @@ def whois():
 
     rows = ips_form.split("\r\n")
 
-    print(rows)
-
     ips_array = []
 
     for row in rows:
         ips_array.append(row.split(","))
-
-    print(ips_array)
 
     ips = []
     times = []
@@ -524,7 +510,6 @@ def whois():
         if l == 3:
             #彙整IP
             ips.append(row[0])
-            print(row[0])
             #彙整時間
             time_format = datetime.datetime.strptime(row[1], "%Y%m%d%H%M")
             times.append(time_format)
@@ -534,7 +519,6 @@ def whois():
         elif l == 2:
             #彙整IP
             ips.append(row[0])
-            print(row[0])
             #彙整時間
             time_format = datetime.datetime.strptime(row[1], "%Y%m%d%H%M")
             times.append(time_format)
@@ -545,10 +529,6 @@ def whois():
             print("格式有誤")
             flash('格式有誤')
             return redirect(url_for('format'))
-
-    pprint(ips)
-    pprint(times)
-    pprint(ports)
 
     si = io.StringIO()
     cw = csv.writer(si)
@@ -568,11 +548,9 @@ def whois():
         if ports[i] != '0':
             ip_port = ip + ":" + ports[i]
             cw.writerow(["IP", isp, ip_port, start_time_format, end_time_format, lookup])
-            print(["IP", isp, ip_port, start_time_format, end_time_format, lookup])
             i = i + 1
         else:
             cw.writerow(["IP", isp, ip, start_time_format, end_time_format, lookup])
-            print(["IP", isp, ip, start_time_format, end_time_format, lookup])
             i = i + 1
 
 
@@ -590,19 +568,6 @@ def whois():
     response.headers['Content-Disposition'] = disposition.encode('utf-8')
     response.headers["Content-type"] = "text/csv"
     return response
-
-@app.route("/getmyip", methods=["GET"])
-def getmyip():
-    print(request.environ.get('REMOTE_PORT'))
-    print(request.access_route)
-
-    dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
-    dt2 = dt1.astimezone(timezone(timedelta(hours=8))) # 轉換時區 -> 東八區
-
-    timenow = dt2.strftime("%Y-%m-%d %H:%M:%S")
-
-    print(timenow)
-    return f'test'
 
 @app.route("/getip", methods=["GET"])
 @login_required
@@ -648,12 +613,10 @@ def getiprecords():
         sql = "SELECT * FROM `getip` WHERE `token`=%s"
         cursor.execute(sql, (token))
         infos = cursor.fetchall()
-        print(infos)
 
         sql = "SELECT * FROM `getiprecords` WHERE `token`=%s ORDER BY `id` DESC"
         cursor.execute(sql, (token))
         records = cursor.fetchall()
-        print(records)
 
         cursor.close()
 
@@ -691,14 +654,11 @@ def getipexport():
 
     ips_array = [results["ip"],time_f,results["port"]]
 
-    print(ips_array)
-
     ips = []
     times = []
     ports = []
 
     ips.append(ips_array[0])
-    print(ips_array[0])
     #彙整時間
     time_format = datetime.datetime.strptime(ips_array[1], "%Y%m%d%H%M")
     times.append(time_format)
@@ -724,11 +684,9 @@ def getipexport():
         if ports[i] != '0':
             ip_port = ip + ":" + ports[i]
             cw.writerow(["IP", isp, ip_port, start_time_format, end_time_format, lookup])
-            print(["IP", isp, ip_port, start_time_format, end_time_format, lookup])
             i = i + 1
         else:
             cw.writerow(["IP", isp, ip, start_time_format, end_time_format, lookup])
-            print(["IP", isp, ip, start_time_format, end_time_format, lookup])
             i = i + 1
 
 
