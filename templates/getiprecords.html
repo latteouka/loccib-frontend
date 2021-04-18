@@ -49,7 +49,7 @@
 								<td data-title="IP位址" class="numeric" name="targeth">{{record["ip"]}}</td>
 							{% endif %}
 				            <td data-title="Port" class="numeric" name="targetn">{{record["port"]}}</td>
-				            <td data-title="備註" class="numeric" name="targetn">{{record["description"]}}</td>
+				            <td data-title="備註" class="numeric" name="targetn" style="word-break:break-all">{{record["description"]}}</td>
 				            <td data-title="下載" class="numeric"><a href="/getipexport?recordid={{record["id"]}}" class="btn-sm btn-secondary" role="button">投單格式</a></td>
 				        </tr>
 				    {% endfor %}
