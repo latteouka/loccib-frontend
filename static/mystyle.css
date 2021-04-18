@@ -411,7 +411,8 @@ input[type=password]:placeholder {
 .parent,
 .parent_number,
 .parent_combine,
-.parent_autpic {
+.parent_autpic,
+.parent_getip {
   display: grid;
   padding-left: 10%;
   padding-right: 10%;
@@ -531,6 +532,11 @@ input[type=password]:placeholder {
   margin: auto;
 }
 
-
+.main_part_getip {
+  display: grid;
+  margin-top: 10px;
+  grid-template-columns: 1fr;
+  
+}
 
 

@@ -3,58 +3,59 @@
 {% block title %}Records{% endblock %}
 
 {% block content %}
-<section id="no-more-tables">
-	<div class="container">
-		<br>
-		<div style="float: left;">
+<section id="no-more-tables" class="parent_getip">
+	<div class="main_part_getip">
+		<div>
+			<br>
+			<div style="float: left;">
+				
+			</div>
+			<div style="float: right">
+				<a href="/getip" class="btn btn-secondary" role="button">回上頁</a>
+				<a href="https://bitly.com" class="btn btn-primary" role="button" target="_blank">bitly</a>
+				<a href="https://ppt.cc" class="btn btn-primary" role="button" target="_blank">ptt</a>
+			</div>
+
+			<div style="clear: both;"></div>
+			<h3> 目標：<u>{{infos[0]["target"]}}</u></h3>
 			
+			<p><b>網址建立時間：</b> {{infos[0]["time"]}}</p>
+			<p><b>最終呈現頁面：</b> {{infos[0]["dsturl"]}}</p>
+			<p><b>給對方的網址：</b> <span id="url">https://dailynewstw.herokuapp.com/news/{{infos[0]["token"]}}</span> <span onclick="copyToClipboard('url')" style="color: #84C1FF;">Copy</span></p> 
+			{% if infos[0]["description"] %}
+				<p><b>備註：</b> {{infos[0]["description"]}}</p>
+			{% endif %}
 		</div>
-		<div style="float: right">
-			<a href="/getip" class="btn btn-secondary" role="button">回上頁</a>
-			<a href="https://bitly.com" class="btn btn-primary" role="button" target="_blank">bitly</a>
-			<a href="https://ppt.cc" class="btn btn-primary" role="button" target="_blank">ptt</a>
-		</div>
+		<div>
+			<p><b>IP紀錄：</b></p>	
 
-		<div style="clear: both;"></div>
-		<h3> 目標：<u>{{infos[0]["target"]}}</u></h3>
-		
-		<p><b>網址建立時間：</b> {{infos[0]["time"]}}</p>
-		<p><b>最終呈現頁面：</b> {{infos[0]["dsturl"]}}</p>
-		<p><b>給對方的網址：</b> <span id="url">https://dailynewstw.herokuapp.com/news/{{infos[0]["token"]}}</span> <span onclick="copyToClipboard('url')" style="color: #84C1FF;">Copy</span></p> 
-		{% if infos[0]["description"] %}
-			<p><b>備註：</b> {{infos[0]["description"]}}</p>
-		{% endif %}
-		
-		<hr>
-		<p><b>IP紀錄：</b></p>	
-
-		<table class="table-bordered table-striped table-condensed cf" style="width: 50% table-layout: fixed;">
-		    <thead class="cf">
-		        <tr>
-		            <th class="numeric">時間</th>
-		            <th class="numeric">IP位址</th>
-		            <th class="numeric">Port</th>
-		            <th class="numeric">備註</th>
-		            <th class="numeric">下載</th>
-		        <tr>
-		    </thead>
-		    <tbody>
-		    	{% for record in records %}
+			<table class="table-bordered table-striped table-condensed cf">
+			    <thead class="cf">
 			        <tr>
-			            <td data-title="時間" class="numeric" name="targetk"><b>{{record["time"]}}</a></b></td>
-						{% if record["ip"].split('.')[0] in taiwanips %}
-							<td data-title="IP位址" class="numeric" name="targeth" style="color: red;"><b>{{record["ip"]}}</b></td>
-						{% else %}
-							<td data-title="IP位址" class="numeric" name="targeth">{{record["ip"]}}</td>
-						{% endif %}
-			            <td data-title="Port" class="numeric" name="targetn">{{record["port"]}}</td>
-			            <td data-title="備註" class="numeric" name="targetn">{{record["description"]}}</td>
-			            <td data-title="下載" class="numeric"><a href="/getipexport?recordid={{record["id"]}}" class="btn-sm btn-secondary" role="button">投單格式</a></td>
-			        </tr>
-			    {% endfor %}
-		    </tbody>
-		</table>
-		
+			            <th class="numeric">時間</th>
+			            <th class="numeric">IP位址</th>
+			            <th class="numeric">Port</th>
+			            <th class="numeric">備註</th>
+			            <th class="numeric">下載</th>
+			        <tr>
+			    </thead>
+			    <tbody>
+			    	{% for record in records %}
+				        <tr>
+				            <td data-title="時間" class="numeric" name="targetk"><b>{{record["time"]}}</a></b></td>
+							{% if record["ip"].split('.')[0] in taiwanips %}
+								<td data-title="IP位址" class="numeric" name="targeth" style="color: red;"><b>{{record["ip"]}}</b></td>
+							{% else %}
+								<td data-title="IP位址" class="numeric" name="targeth">{{record["ip"]}}</td>
+							{% endif %}
+				            <td data-title="Port" class="numeric" name="targetn">{{record["port"]}}</td>
+				            <td data-title="備註" class="numeric" name="targetn">{{record["description"]}}</td>
+				            <td data-title="下載" class="numeric"><a href="/getipexport?recordid={{record["id"]}}" class="btn-sm btn-secondary" role="button">投單格式</a></td>
+				        </tr>
+				    {% endfor %}
+			    </tbody>
+			</table>
+		</div>
 	</div>
 </section>
 
