@@ -603,6 +603,7 @@ def getmyip():
     return f'test'
 
 @app.route("/getip", methods=["GET"])
+@login_required
 def getip():
     
     user = current_user.get_id()
@@ -625,6 +626,7 @@ def getip():
 
 
 @app.route("/getiprecords", methods=["GET"])
+@login_required
 def getiprecords():
 
     token = request.args.get('token')
@@ -652,6 +654,96 @@ def getiprecords():
 
     
     return render_template('getiprecords.html',**locals())
+
+
+#輸出csv
+@app.route('/getipexport', methods=['GET'])
+@login_required
+def getipexport():
+
+    user = current_user.get_id()
+    recordid = request.args.get('recordid')
+
+    si = io.StringIO()
+    cw = csv.writer(si)
+
+    connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
+                             user=os.environ.get('CLEARDB_DATABASE_USER'),
+                             password=os.environ.get('CLEARDB_DATABASE_PASSWORD'),
+                             db=os.environ.get('CLEARDB_DATABASE_DB'),
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+    
+    with connection.cursor() as cursor:
+        sql = "SELECT * FROM `getiprecords` WHERE `id`=%s"
+        cursor.execute(sql, (recordid))
+        results = cursor.fetchone()
+        
+        cursor.close()
+    
+    time_f = results["time"]
+    time_f = time_f[0:4]+time_f[5:7]+time_f[8:10]+time_f[11:13]+time_f[14:16]+time_f[17:19]
+
+    ips_array = [results["ip"],time_f,results["port"]]
+
+    print(ips_array)
+
+    ips = []
+    times = []
+    ports = []
+
+    for row in ips_array:
+        
+        ips.append(row[0])
+        print(row[0])
+        #彙整時間
+        time_format = datetime.datetime.strptime(row[1], "%Y%m%d%H%M")
+        times.append(time_format)
+        #彙整port
+        ports.append(row[2])
+            
+
+    si = io.StringIO()
+    cw = csv.writer(si)
+
+    i = 0
+    
+    for ip in ips:
+
+        isp, lookup = which_isp(ip)
+
+        start_time = times[i] - datetime.timedelta(minutes=10)
+        start_time_format = start_time.strftime('%Y%m%d%H%M%S')
+        end_time = times[i] + datetime.timedelta(minutes=10)
+        end_time_format = end_time.strftime('%Y%m%d%H%M%S')
+
+
+        if ports[i] != '0':
+            ip_port = ip + ":" + ports[i]
+            cw.writerow(["IP", isp, ip_port, start_time_format, end_time_format, lookup])
+            print(["IP", isp, ip_port, start_time_format, end_time_format, lookup])
+            i = i + 1
+        else:
+            cw.writerow(["IP", isp, ip, start_time_format, end_time_format, lookup])
+            print(["IP", isp, ip, start_time_format, end_time_format, lookup])
+            i = i + 1
+
+
+
+
+    response = make_response(si.getvalue())
+
+    dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
+    dt2 = dt1.astimezone(timezone(timedelta(hours=8))) # 轉換時區 -> 東八區
+
+    timenow = dt2.strftime("%Y-%m-%d %H:%M:%S")
+
+    disposition = "attachment; filename=output-" + timenow + ".csv"
+
+    response.headers['Content-Disposition'] = disposition.encode('utf-8')
+    response.headers["Content-type"] = "text/csv"
+    return response
+    
 
 
 if __name__ == 'main':
