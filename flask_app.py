@@ -692,15 +692,13 @@ def getipexport():
     times = []
     ports = []
 
-    for row in ips_array:
-        
-        ips.append(row[0])
-        print(row[0])
-        #彙整時間
-        time_format = datetime.datetime.strptime(row[1], "%Y%m%d%H%M")
-        times.append(time_format)
-        #彙整port
-        ports.append(row[2])
+    ips.append(ips_array[0])
+    print(ips_array[0])
+    #彙整時間
+    time_format = datetime.datetime.strptime(ips_array[1], "%Y%m%d%H%M")
+    times.append(time_format)
+    #彙整port
+    ports.append(ips_array[2])
             
 
     si = io.StringIO()
