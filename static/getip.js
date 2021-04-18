@@ -1,14 +1,26 @@
-function clickcopy() {
-  /* Get the text field */
-  var copyText = document.getElementById("url").innerHTML;
 
-  /* Select the text field */
-  copyText.select(); 
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
-  /* Copy the text inside the text field */
+function copyToClipboard(elementId) {
+
+  // Create an auxiliary hidden input
+  var aux = document.createElement("input");
+
+  // Get the text from the element passed into the input
+  aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+
+  // Append the aux input to the body
+  document.body.appendChild(aux);
+
+  // Highlight the content
+  aux.select();
+
+  // Execute the copy command
   document.execCommand("copy");
+
+  // Remove the input from the body
+  document.body.removeChild(aux);
 
   /* Alert the copied text */
   alert("Copied!!");
+
 }

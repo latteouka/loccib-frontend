@@ -22,7 +22,7 @@
 		<p><b>目標資訊：</b> {{infos[0]["target"]}}</p>
 		<p><b>網址建立時間：</b> {{infos[0]["time"]}}</p>
 		<p><b>最終呈現頁面：</b> {{infos[0]["dsturl"]}}</p>
-		<p><b>給對方的網址：</b> <span id="url">https://dailynewstw.herokuapp.com/news/{{infos[0]["token"]}}</span> <span onclick="clickcopy()" style="color: #84C1FF;">Copy</span></p> 
+		<p><b>給對方的網址：</b> <span id="url">https://dailynewstw.herokuapp.com/news/{{infos[0]["token"]}}</span> <span onclick="copyToClipboard('url')" style="color: #84C1FF;">Copy</span></p> 
 		{% if infos[0]["description"] %}
 			<p><b>備註：</b> {{infos[0]["description"]}}</p>
 		{% endif %}
