@@ -10,6 +10,7 @@
 			
 		</div>
 		<div style="float: right">
+			<a class="btn btn-secondary" role="button" onclick="show()">新增</a>
 			<a href="https://bitly.com" class="btn btn-primary" role="button" target="_blank">bitly</a>
 			<a href="https://ppt.cc" class="btn btn-primary" role="button" target="_blank">ptt</a>
 			<a href="/logout" class="btn btn-danger" role="button">登出</a>
@@ -41,7 +42,7 @@
 		</table>
 		
 	</div>
-	<div class="wrapper">
+	<div class="wrapper" id="add_form">
 			<div id="formContent">
 				<h3>新增一筆</h3>
 				<form method="post" action="/getipadd">
