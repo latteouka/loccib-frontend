@@ -26,6 +26,8 @@ import re
 from ipwhois import IPWhois
 from pprint import pprint
 
+import secrets
+
 
 app = Flask(__name__)
 app.secret_key = '268ffece5b07530333f1695850c5febd'
