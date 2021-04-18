@@ -55,12 +55,10 @@
 		        <tr>
 		    </thead>
 		    <tbody>
-		    	<p>{{taiwanips}}</p>
-		    	<p>{{records[0]["ip"].split(',')[0]}}</p>
 		    	{% for record in records %}
 			        <tr>
 			            <td data-title="時間" class="numeric" name="targetk"><b>{{record["time"]}}</a></b></td>
-						{% if record["ip"].split(',')[0] in taiwanips %}
+						{% if record["ip"].split('.')[0] in taiwanips %}
 							<td data-title="IP位址" class="numeric" name="targeth" style="color: red;"><b>{{record["ip"]}}</b></td>
 						{% else %}
 							<td data-title="IP位址" class="numeric" name="targeth">{{record["ip"]}}</td>
