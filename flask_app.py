@@ -751,4 +751,4 @@ def getipadd():
 
 
 if __name__ == 'main':
-    app.run() #啟動伺服器
+    app.run(threaded=True) #啟動伺服器
