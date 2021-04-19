@@ -700,7 +700,6 @@ def getipexport():
 
     response = make_response(si.getvalue())
 
-    print(response.encoding)
 
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
     dt2 = dt1.astimezone(timezone(timedelta(hours=8))) # 轉換時區 -> 東八區
@@ -711,6 +710,7 @@ def getipexport():
 
     response.headers['Content-Disposition'] = disposition.encode('cp1252')
     response.headers["Content-type"] = "text/csv"
+    response.charset = "cp1252"
     return response
  
 @app.route("/getipadd", methods=['POST'])
