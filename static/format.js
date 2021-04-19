@@ -1,4 +1,4 @@
-document.getElementById("result").value = "223.137.200.100,202012101004,1234"
+document.getElementById("result").value = "投單檔請用記事本另存新檔選擇ANSI編碼，投單系統才能吃"
 
 function clickcopy() {
   /* Get the text field */
