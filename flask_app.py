@@ -672,7 +672,7 @@ def getipexport():
     ports.append(ips_array[2])
             
 
-    si = io.StringIO()
+    si = io.StringIO().getvalue().encode('cp1252')
     cw = csv.writer(si)
 
     i = 0
@@ -689,10 +689,10 @@ def getipexport():
 
         if ports[i] != '0':
             ip_port = ip + ":" + ports[i]
-            cw.writerow(["IP", isp, ip_port, start_time_format, end_time_format, lookup].encode('utf-8'))
+            cw.writerow(["IP", isp, ip_port, start_time_format, end_time_format, lookup])
             i = i + 1
         else:
-            cw.writerow(["IP", isp, ip, start_time_format, end_time_format, lookup].encode('utf-8'))
+            cw.writerow(["IP", isp, ip, start_time_format, end_time_format, lookup])
             i = i + 1
 
 
