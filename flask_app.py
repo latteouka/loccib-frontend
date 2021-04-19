@@ -672,7 +672,7 @@ def getipexport():
     ports.append(ips_array[2])
             
 
-    si = io.StringIO()
+    si = io.StringIO().encode('cp1252')
     cw = csv.writer(si)
 
     i = 0
