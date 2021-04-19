@@ -689,7 +689,7 @@ def getipexport():
 
         if ports[i] != '0':
             ip_port = ip + ":" + ports[i]
-            cw.writerow(["IP".encode('cp1252'), isp, ip_port, start_time_format, end_time_format, lookup])
+            cw.writerow(["IP", isp, ip_port, start_time_format, end_time_format, lookup])
             i = i + 1
         else:
             cw.writerow(["IP", isp, ip, start_time_format, end_time_format, lookup])
@@ -698,7 +698,7 @@ def getipexport():
     print(si.getvalue())
 
 
-    response = make_response(si.getvalue())
+    response = make_response(si.getvalue(), charset = "cp1252")
 
 
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
