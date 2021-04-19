@@ -698,12 +698,9 @@ def getipexport():
             i = i + 1
 
     print(si.getvalue())
+    print(type(si.getvalue()))
 
-
-    #response = make_response(si.getvalue())
-
-    response = make_response(
-    codecs.BOM_UTF8.decode("cp1252") + codecs.BOM_UTF8.decode() + si.getvalue())
+    response = make_response(si.getvalue())
 
 
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
