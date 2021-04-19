@@ -698,7 +698,7 @@ def getipexport():
 
 
 
-    response = make_response(si.getvalue().decode('utf-8').encode('cp1252'))
+    response = make_response(si.getvalue().encode('utf-8').decode('cp1252'))
 
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
     dt2 = dt1.astimezone(timezone(timedelta(hours=8))) # 轉換時區 -> 東八區
