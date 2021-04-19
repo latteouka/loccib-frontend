@@ -16,6 +16,7 @@ import pymysql.cursors
 
 import csv
 import io
+from io import BytesIO, TextIOWrapper
 
 from datetime import datetime,timezone,timedelta
 from datetime import date
@@ -29,7 +30,6 @@ from pprint import pprint
 
 import secrets
 
-import codecs
 
 
 app = Flask(__name__)
@@ -700,7 +700,7 @@ def getipexport():
     print(si.getvalue())
     print(type(si.getvalue()))
 
-    response = make_response(si.getvalue())
+    response = make_response(si.getvalue().encode('mbcs'))
 
 
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
@@ -710,7 +710,7 @@ def getipexport():
 
     disposition = "attachment; filename=output-" + timenow + ".csv"
 
-    response.headers['Content-Disposition'] = disposition.encode('utf-8')
+    response.headers['Content-Disposition'] = disposition.encode('mbcs')
     response.headers["Content-type"] = "text/csv"
     response.charset = 'cp1252'
     return response
