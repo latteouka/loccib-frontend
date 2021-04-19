@@ -29,6 +29,8 @@ from pprint import pprint
 
 import secrets
 
+import codecs
+
 
 app = Flask(__name__)
 app.secret_key = '268ffece5b07530333f1695850c5febd'
@@ -698,7 +700,10 @@ def getipexport():
     print(si.getvalue())
 
 
-    response = make_response(si.getvalue(), charset = "cp1252")
+    #response = make_response(si.getvalue())
+
+    response = make_response(
+    codecs.BOM_UTF8.decode("cp1252") + codecs.BOM_UTF8.decode() + si.getvalue())
 
 
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
@@ -710,7 +715,6 @@ def getipexport():
 
     response.headers['Content-Disposition'] = disposition.encode('cp1252')
     response.headers["Content-type"] = "text/csv"
-    response.charset = "cp1252"
     return response
  
 @app.route("/getipadd", methods=['POST'])
