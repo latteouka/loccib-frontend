@@ -689,16 +689,16 @@ def getipexport():
 
         if ports[i] != '0':
             ip_port = ip + ":" + ports[i]
-            cw.writerow(["IP", isp, ip_port, start_time_format, end_time_format, lookup])
+            cw.writerow(["IP", isp, ip_port, start_time_format, end_time_format, lookup].encode('utf-8'))
             i = i + 1
         else:
-            cw.writerow(["IP", isp, ip, start_time_format, end_time_format, lookup])
+            cw.writerow(["IP", isp, ip, start_time_format, end_time_format, lookup].encode('utf-8'))
             i = i + 1
 
 
 
 
-    response = make_response(si.getvalue().encode('cp1252'))
+    response = make_response(si.getvalue())
 
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
     dt2 = dt1.astimezone(timezone(timedelta(hours=8))) # 轉換時區 -> 東八區
