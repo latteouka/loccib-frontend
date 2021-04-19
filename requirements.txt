@@ -4,3 +4,4 @@ gunicorn
 PyMySQL
 Flask-Login
 ipwhois
+pyshorteners

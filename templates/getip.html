@@ -48,7 +48,7 @@
 			            <td data-title="時間" class="numeric" name="targeth">{{result["time"]}}</td>
 			            <td data-title="最終呈現頁面" class="numeric" name="targetn">{{result["dsturl"]}}</td>
 			            <td data-title="給對方的網址" class="numeric" name="targetn" id="{{result["id"]}}"><span id="ori_url">https://dailynewstw.herokuapp.com/news/{{result["token"]}}</span> <span onclick="copyToClipboard('ori_url')" style="color: #84C1FF;">Copy</span></td>
-			            <td data-title="Bitly" class="numeric" name="targetn"><span id="bitly">bit.ly/xxx</span> <span onclick="copyToClipboard('bitly')" style="color: #84C1FF;">Copy</span></td>
+			            <td data-title="Bitly" class="numeric" name="targetn"><span id="bitly">{{result["bitly"]}}</span> <span onclick="copyToClipboard('bitly')" style="color: #84C1FF;">Copy</span></td>
 			        </tr>
 			    {% endfor %}
 		    </tbody>

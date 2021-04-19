@@ -30,6 +30,7 @@ from ipwhois import IPWhois
 from pprint import pprint
 
 import secrets
+import pyshorteners
 
 
 
@@ -723,6 +724,9 @@ def getipadd():
 
     token = secrets.token_hex(4)
 
+    s = pyshorteners.Shortener(api_key='5f060e3091383f41f019249adbddf2928cd53b45')
+    bitly_url = s.bitly.short('https://dailynewstw.herokuapp.com/news/'+token)
+
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
     dt2 = dt1.astimezone(timezone(timedelta(hours=8))) # 轉換時區 -> 東八區
 
@@ -736,9 +740,9 @@ def getipadd():
                              cursorclass=pymysql.cursors.DictCursor)
 
     with connection.cursor() as cursor:
-        sql = "INSERT INTO `getip` (`user`, `target`, `dsturl`, `token`, `description`, `time`) VALUES (%s, %s, %s, %s, %s, %s)"
+        sql = "INSERT INTO `getip` (`user`, `target`, `dsturl`, `token`, `description`, `time`, `bitly`) VALUES (%s, %s, %s, %s, %s, %s, %s)"
         
-        cursor.execute(sql, (user, target, dsturl, token, description, timenow))
+        cursor.execute(sql, (user, target, dsturl, token, description, timenow, bitly_url))
         
         cursor.close()
 
