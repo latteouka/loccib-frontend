@@ -700,7 +700,7 @@ def getipexport():
     print(si.getvalue())
     print(type(si.getvalue()))
 
-    response = make_response(si.getvalue().encode('mbcs'))
+    response = make_response(si.getvalue().encode('iso8859-1'))
 
 
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
