@@ -675,7 +675,7 @@ def getipexport():
             
 
     si = io.StringIO()
-    cw = csv.writer(si)
+    cw = csv.writer(si, encoding='cp1252')
 
     i = 0
     
@@ -710,8 +710,9 @@ def getipexport():
 
     disposition = "attachment; filename=output-" + timenow + ".csv"
 
-    response.headers['Content-Disposition'] = disposition.encode('cp1252')
+    response.headers['Content-Disposition'] = disposition.encode('utf-8')
     response.headers["Content-type"] = "text/csv"
+    response.charset = 'cp1252'
     return response
  
 @app.route("/getipadd", methods=['POST'])
