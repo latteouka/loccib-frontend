@@ -710,7 +710,7 @@ def getipexport():
 
     disposition = "attachment; filename=output-" + timenow + ".csv"
 
-    response.headers['Content-Disposition'] = disposition.encode('mbcs')
+    response.headers['Content-Disposition'] = disposition.encode('iso8859-1')
     response.headers["Content-type"] = "text/csv"
     response.charset = 'cp1252'
     return response
