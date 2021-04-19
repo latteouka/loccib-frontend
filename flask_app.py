@@ -2,6 +2,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from flask import make_response
+from flask import Response
 from flask import url_for
 from flask import redirect
 from flask import flash
@@ -697,7 +698,9 @@ def getipexport():
             cw.writerow(["IP", isp, ip, start_time_format, end_time_format, lookup])
             i = i + 1
 
-    response = make_response(si.getvalue())
+    #response = make_response(si.getvalue())
+
+    response = Response(si.getvalue(), charset='cp1252', mimetype="text/csv")
 
 
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
@@ -708,8 +711,8 @@ def getipexport():
     disposition = "attachment; filename=output-" + timenow + ".csv"
 
     response.headers['Content-Disposition'] = disposition.encode('cp1252')
-    response.headers["Content-type"] = "text/csv"
-    response.charset = 'cp1252'
+    #response.headers["Content-type"] = "text/csv"
+
     return response
  
 @app.route("/getipadd", methods=['POST'])
