@@ -318,7 +318,7 @@ def login():
 
     #hash 
     s = hashlib.sha1()
-    request_password = request.form['password'].encode('ansi')
+    request_password = request.form['password'].encode('etf-8')
     s.update(request_password)
     request_password_h = s.hexdigest()
 
