@@ -675,7 +675,7 @@ def getipexport():
             
 
     si = io.StringIO()
-    cw = csv.writer(si, encoding='cp1252')
+    cw = csv.writer(si)
 
     i = 0
     
