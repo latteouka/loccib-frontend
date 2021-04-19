@@ -697,10 +697,7 @@ def getipexport():
             cw.writerow(["IP", isp, ip, start_time_format, end_time_format, lookup])
             i = i + 1
 
-    print(si.getvalue())
-    print(si.getvalue().encoding)
-
-    response = make_response(si.getvalue().encode('iso8859-1'))
+    response = make_response(si.getvalue())
 
 
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
@@ -710,7 +707,7 @@ def getipexport():
 
     disposition = "attachment; filename=output-" + timenow + ".csv"
 
-    response.headers['Content-Disposition'] = disposition.encode('iso8859-1')
+    response.headers['Content-Disposition'] = disposition.encode('cp1252')
     response.headers["Content-type"] = "text/csv"
     response.charset = 'cp1252'
     return response
