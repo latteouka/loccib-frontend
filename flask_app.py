@@ -698,10 +698,7 @@ def getipexport():
             cw.writerow(["IP", isp, ip, start_time_format, end_time_format, lookup])
             i = i + 1
 
-    #response = make_response(si.getvalue())
-
-    response = Response(si.getvalue(), content_encoding='cp1252', mimetype="text/csv")
-
+    response = make_response(si.getvalue())
 
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
     dt2 = dt1.astimezone(timezone(timedelta(hours=8))) # 轉換時區 -> 東八區
@@ -710,8 +707,8 @@ def getipexport():
 
     disposition = "attachment; filename=output-" + timenow + ".csv"
 
-    response.headers['Content-Disposition'] = disposition.encode('cp1252')
-    #response.headers["Content-type"] = "text/csv"
+    response.headers['Content-Disposition'] = disposition.encode('utf-8')
+    response.headers["Content-type"] = "text/csv"
 
     return response
  
