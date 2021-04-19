@@ -302,7 +302,7 @@ def export():
 
     disposition = "attachment; filename=output-" + user + "-" + target + "-" + timenow + ".csv"
 
-    response.headers['Content-Disposition'] = disposition.encode('utf-8')
+    response.headers['Content-Disposition'] = disposition.encode('cp1252')
     response.headers["Content-type"] = "text/csv"
     return response
 
@@ -571,7 +571,7 @@ def whois():
 
     disposition = "attachment; filename=output-" + timenow + ".csv"
 
-    response.headers['Content-Disposition'] = disposition.encode('utf-8')
+    response.headers['Content-Disposition'] = disposition.encode('cp1252')
     response.headers["Content-type"] = "text/csv"
     return response
 
@@ -707,7 +707,7 @@ def getipexport():
 
     disposition = "attachment; filename=output-" + timenow + ".csv"
 
-    response.headers['Content-Disposition'] = disposition.encode('utf-8')
+    response.headers['Content-Disposition'] = disposition.encode('cp1252')
     response.headers["Content-type"] = "text/csv"
     return response
  
