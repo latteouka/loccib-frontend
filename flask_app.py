@@ -700,7 +700,7 @@ def getipexport():
 
     #response = make_response(si.getvalue())
 
-    response = Response(si.getvalue(), charset='cp1252', mimetype="text/csv")
+    response = Response(si.getvalue(), content_encoding='cp1252', mimetype="text/csv")
 
 
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
