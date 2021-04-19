@@ -698,7 +698,7 @@ def getipexport():
             i = i + 1
 
     print(si.getvalue())
-    print(type(si.getvalue()))
+    print(si.getvalue().encoding)
 
     response = make_response(si.getvalue().encode('iso8859-1'))
 
