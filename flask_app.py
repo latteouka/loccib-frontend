@@ -692,11 +692,18 @@ def getipexport():
 
         isp, lookup = which_isp(ip)
 
-        start_time = times[i] - datetime.timedelta(minutes=10)
-        start_time_format = start_time.strftime('%Y%m%d%H%M%S')
-        end_time = times[i] + datetime.timedelta(minutes=10)
-        end_time_format = end_time.strftime('%Y%m%d%H%M%S')
+        if isp == '遠傳電信股份有限公司':
 
+            start_time = times[i] - datetime.timedelta(minutes=60)
+            start_time_format = start_time.strftime('%Y%m%d%H%M%S')
+            end_time = times[i]
+            end_time_format = end_time.strftime('%Y%m%d%H%M%S')
+        else:
+
+            start_time = times[i] - datetime.timedelta(minutes=10)
+            start_time_format = start_time.strftime('%Y%m%d%H%M%S')
+            end_time = times[i] + datetime.timedelta(minutes=10)
+            end_time_format = end_time.strftime('%Y%m%d%H%M%S')
 
         if ports[i] != '0':
             ip_port = ip + ":" + ports[i]
