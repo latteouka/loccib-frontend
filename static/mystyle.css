@@ -477,8 +477,8 @@ input[type=password]:placeholder {
 }
 
 .main_row_button button {
-  padding-left: 3px;
-  padding-right: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
   text-decoration: none;
 }
 
