@@ -477,7 +477,12 @@ input[type=password]:placeholder {
 }
 
 .main_row_button button {
-  width: 70px;
+  width: 90px;
+}
+
+
+.main_row_button button a {
+  text-decoration: none;
 }
 
 
