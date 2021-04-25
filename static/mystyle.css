@@ -476,6 +476,10 @@ input[type=password]:placeholder {
   margin-top: .5em;
 }
 
+.main_row_button button {
+  width: 100px;
+}
+
 
 .number_main_part {
   display: grid;
