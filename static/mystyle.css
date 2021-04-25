@@ -480,8 +480,13 @@ input[type=password]:placeholder {
   padding-left: 10px;
   padding-right: 10px;
   text-decoration: none;
+  color: white;
 }
 
+.main_row_button button a {
+  text-decoration: none;
+  color: white;
+}
 
 .number_main_part {
   display: grid;
