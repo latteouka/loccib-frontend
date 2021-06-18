@@ -144,6 +144,7 @@ users = {'chun': {'password': '70608f1675a12b81a09aa5f797b5b5d308b5405d'},
         'yifan': {'password': '0e19644e35a2b71ff35115c2d7a68a65fd76ce7e'},
         'mpfive77': {'password': '9977aa0f876371d2957cb5a7949122f6a55a8d02'},
         'cibdodo': {'password': '8b029d563ed25f7224dedf1b0d5290bb11d8ae84'},
+        'cibpopo': {'password': '0c663143b30be921fdbd51d53f394976d5f1059f'},
         'R223571705': {'password': '3655bf2b31a3016299b8d9e2c79754f99eadabda'}
 }
 
