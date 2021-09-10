@@ -136,6 +136,7 @@ def request_loader(request):
 
 users = {'chun': {'password': '70608f1675a12b81a09aa5f797b5b5d308b5405d'},
         'loveve': {'password': 'e315ceef29e03c0360070a952eba732306ba3f7c'},
+        'loveve3': {'password': 'e315ceef29e03c0360070a952eba732306ba3f7c'},
         'loveve2': {'password': 'e315ceef29e03c0360070a952eba732306ba3f7c'},
         'pa781022': {'password': '3a960464d36c1b8bad183ed57ee79c0e39953cce'},
         'lawbingbing': {'password': 'a57ae0fe47084bc8a05f69f3f8083896f8b437b0'},
