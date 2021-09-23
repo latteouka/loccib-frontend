@@ -24,10 +24,10 @@ connection = pymysql.connect(host=os.environ.get('CLEARDB_DATABASE_HOST'),
                              db=os.environ.get('CLEARDB_DATABASE_DB'),
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
+
 with connection.cursor() as cursor:
-
-	sql = "DELETE FROM `records` WHERE `time`<%s"
+    sql = "DELETE FROM `records` WHERE `time`<%s"
     cursor.execute(sql, (time_limit))
-
     cursor.close()
+
 connection.commit()
