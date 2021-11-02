@@ -150,6 +150,7 @@ users = {'chun': {'password': '70608f1675a12b81a09aa5f797b5b5d308b5405d'},
         'yty': {'password': '507e2ae9ac0ff334fab81b6c4bed301ceac96d94'},
         'Ss07': {'password': 'a15407ea17c685de00cdf080c7078bd42c944d3a'},
         'Ss08': {'password': '67af763ba74c29da61639d6d9e98860e8e0607d5'},
+        'linantaj': {'password': '1fd0cd0b10b84e9afa697908f04135295977e2d5'},
         'bigcat': {'password': '06304e3f440af4dd29ae2822028ffc51445cc4ab'},
         'R223571705': {'password': '3655bf2b31a3016299b8d9e2c79754f99eadabda'}
 }
