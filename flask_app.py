@@ -205,7 +205,7 @@ def show():
                              cursorclass=pymysql.cursors.DictCursor)
 
     with connection.cursor() as cursor:
-        sql = "SELECT * FROM `records` WHERE `user`=%s ORDER BY `id` DESC LIMIT 96"
+        sql = "SELECT * FROM `records` WHERE `user`=%s ORDER BY `id` DESC LIMIT 500"
         cursor.execute(sql, (user,))
         results = cursor.fetchall()
         cursor.close()
