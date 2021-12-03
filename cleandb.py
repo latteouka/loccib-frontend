@@ -13,7 +13,7 @@ dt2 = dt1.astimezone(timezone(timedelta(hours=8))) # 轉換時區 -> 東八區
 
 timenow = dt2.strftime("%Y/%m/%d %H:%M:%S")
 
-dt3 = dt2 - datetime.timedelta(days=30)
+dt3 = dt2 - datetime.timedelta(days=60)
 
 time_limit = dt3.strftime("%Y/%m/%d %H:%M:%S")
 
