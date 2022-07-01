@@ -318,7 +318,7 @@ def export():
     cw.writerow((['Target', 'Time', 'Cell', 'Tri_Loc', 'Info']))
     
     for result in results:
-        cw.writerow(([result["header"],result["time"],"http://www.google.com.tw/maps/search/"+result["cell_lat"]+","+result["cell_lon"],"http://www.google.com.tw/maps/search/"+result["tri_lat"]+","+result["tri_lon"],result["msg"]]))
+        cw.writerow(([result["header"],result["time"],"http://www.google.com.tw/maps/search/"+result["cell_lat"]+","+result["cell_lon"],"http://www.google.com.tw/maps/search/"+result["tri_lat"]+","+result["tri_lon"],result["msg"]+","+result["tri_lat"]+","+result["tri_lon"]]))
 
     response = make_response(si.getvalue())
 
