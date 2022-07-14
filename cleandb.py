@@ -32,3 +32,4 @@ with connection.cursor() as cursor:
     cursor.close()
 
 connection.commit()
+connection.close()
