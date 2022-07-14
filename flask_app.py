@@ -198,6 +198,7 @@ def addnew():
         cursor.close()
 
     connection.commit()
+    connection.close()
     return f'add new record'
     
 @app.route("/", methods=['GET'])
@@ -220,6 +221,7 @@ def show():
         cursor.close()
 
     
+    connection.close()
     return render_template('records.html',**locals())
 
 @app.route("/target", methods=['GET'])
@@ -244,6 +246,7 @@ def target():
         cursor.close()
 
     
+    connection.close()
     return render_template('target_records.html',**locals())
 
 
@@ -266,7 +269,7 @@ def manage():
         results = cursor.fetchall()
         cursor.close()
 
-    
+    connection.close()
     return render_template('manage.html',**locals())
 
 
@@ -288,7 +291,7 @@ def recorddele():
         cursor.execute(sql, (user, header))
         cursor.close()
 
-    connection.commit()
+    connection.close()
     return redirect(url_for('manage'))
 
 #輸出csv
@@ -320,6 +323,7 @@ def export():
     for result in results:
         cw.writerow(([result["header"],result["time"],"http://www.google.com.tw/maps/search/"+result["cell_lat"]+","+result["cell_lon"],"http://www.google.com.tw/maps/search/"+result["tri_lat"]+","+result["tri_lon"],result["msg"],result["tri_lat"]+","+result["tri_lon"]]))
 
+    connection.close()
     response = make_response(si.getvalue())
 
     dt1 = datetime.datetime.utcnow().replace(tzinfo=timezone.utc)
@@ -391,6 +395,7 @@ def insloc():
         cursor.close()
 
     
+    connection.close()
     return render_template('insloc.html',**locals())
 
 @app.route("/inslocadd", methods=['POST'])
@@ -417,6 +422,7 @@ def inslocadd():
         cursor.close()
 
     connection.commit()
+    connection.close()
     return redirect(url_for('insloc'))
 
 
@@ -440,6 +446,7 @@ def inslocdele():
         cursor.close()
 
     connection.commit()
+    connection.close()
     return redirect(url_for('insloc'))
 
 @app.route("/status", methods=['GET'])
@@ -459,6 +466,7 @@ def status():
         cursor.close()
 
     status = results["keyword"]
+    connection.close()
 
     return status
 
@@ -493,6 +501,7 @@ def insaddnew():
         cursor.close()
 
     connection.commit()
+    connection.close()
     return f'add new insrecord'
 
 
@@ -629,6 +638,7 @@ def getip():
         cursor.close()
 
     
+    connection.close()
     return render_template('getip.html',**locals())
 
 
@@ -661,6 +671,7 @@ def getiprecords():
         cursor.close()
 
     
+    connection.close()
     return render_template('getiprecords.html',**locals())
 
 
@@ -689,6 +700,8 @@ def getipexport():
         
         cursor.close()
     
+    connection.close()
+
     time_f = results["time"]
     time_f = time_f[0:4]+time_f[5:7]+time_f[8:10]+time_f[11:13]+time_f[14:16]
 
@@ -784,6 +797,7 @@ def getipadd():
         cursor.close()
 
     connection.commit()
+    connection.close()
     return redirect(url_for('getip'))
 
 
